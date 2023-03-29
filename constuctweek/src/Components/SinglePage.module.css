@@ -1,0 +1,21 @@
+
+@media screen and (max-width:1200px) {
+   .mainsection{
+     
+      display: flex;
+      flex-direction: column;
+   }
+   .mainsection div{
+    margin: auto;
+   }
+   #addcart{
+    margin: auto;
+   }
+
+   #aboutproduct{
+    flex-direction: column;
+    margin: auto;
+   }
+   
+   
+}

@@ -1,0 +1,20 @@
+.mainsection{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+.sidebar{
+    position: relative;
+    width: 25%;
+    border: 1px solid red;
+    height: 700px;
+}
+.gridsection{
+    width: 70%;
+    border: 1px solid red;
+    
+}
+.rating input{
+    margin-right: 5px; 
+}
