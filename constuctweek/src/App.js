@@ -5,6 +5,7 @@ import Product from './Components/Product';
 import Admin from "./Gurmeet/Admin";
 import Navbar from './Navbar'
 import NavMenus from './NavMenus'
+import Cart from "./Sanjeet/Cart"
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
       <Product/>
       <SinglePage />
       <Admin />
+      <Cart/>
     </div>
   );
 
