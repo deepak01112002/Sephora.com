@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -82,5 +83,159 @@ main {
   }
   .main {
     padding: 70px 0 0 30px;
+  }}
+
+#top-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e00585;
+  color: white;
+  height: 60px;
+}
+#top-add img {
+  width: 32%;
+  margin-left: 35px;
+}
+#top-add p {
+  font-size: 14px;
+}
+#top-add p span {
+  font-weight: bold;
+}
+#top-add:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+@media screen and (max-width: 1900px) {
+  #top-add {
+    display: none;
+  }
+}
+#nav-top {
+  display: flex;
+  justify-content: space-evenly;
+  /* border: 1px solid; */
+  height: 100px;
+  margin-top: 30px;
+  align-items: center;
+}
+.nav-store-comm {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+}
+.nav-store-comm:hover {
+  border-bottom: 2px solid;
+  cursor: pointer;
+}
+.nav-store-comm:hover img {
+  cursor: pointer;
+  /* border-radius: 50%; */
+}
+.nav-store-comm div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-small-icons {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.nav-small-icons img {
+  width: 30px;
+}
+.nav-small-icons:hover {
+  border: 2px solid black;
+}
+.comm-text {
+  margin-top: 6px;
+}
+.nav-signup {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+}
+.nav-signup:hover {
+  border-bottom: 2px solid black;
+}
+.comm-text p span {
+  font-size: 12px;
+}
+.nav-small-icons-sign {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid;
+  margin-top: 10px;
+}
+.nav-small-icons-sign img {
+  width: 30px;
+}
+.nav-small-icons-sign:hover {
+  border: 2px solid black;
+}
+
+.full-width {
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+.full-width {
+  width: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.full-width a {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.full-width a:hover {
+  color: #e0e0e0;
+}
+
+.full-width .sub-menu {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  flex-direction: column;
+
+}
+
+.full-width a:hover .sub-menu {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 992px) and (min-width: 576px) {
+  .full-width .sub-menu {
+    flex-direction: row;
   }
 }
