@@ -1,12 +1,13 @@
+import logo from './logo.svg';
 import './App.css';
-import Navbar from './Navbar';
-import NavMenus from './NavMenus';
+import SinglePage from './Components/SinglePage';
+import Product from './Components/Product';
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <NavMenus/>
+      <Product/>
+      {/* <SinglePage /> */}
     </div>
   );
 }
