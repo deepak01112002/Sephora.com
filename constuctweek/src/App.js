@@ -7,18 +7,15 @@ import Navbar from './Navbar'
 import NavMenus from './NavMenus'
 import Cart from "./Sanjeet/Cart"
 import Payment from './Sanjeet/Payment';
+import MainRoutes from './Components/MainRoutes';
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
       <NavMenus/>
-      <Product/>
-      <SinglePage />
-      <Admin /> 
-       <Cart/>
-       <Payment/> 
-     
+      <MainRoutes/>
+      <Payment/> 
     </div>
   );
 

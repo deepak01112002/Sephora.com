@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div>
@@ -28,7 +28,7 @@ const Navbar = () => {
             />
           </div>
           <div>
-            <p className="comm-text">Stores & Services</p>
+          <Link to={"/admin"}><p className="comm-text">Stores & Services</p></Link>
           </div>
         </div>
         <div className="nav-store-comm">
