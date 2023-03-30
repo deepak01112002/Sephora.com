@@ -6,6 +6,8 @@ import Admin from "./Gurmeet/Admin";
 import Navbar from './Navbar'
 import NavMenus from './NavMenus'
 import Cart from "./Sanjeet/Cart"
+import Payment from './Sanjeet/Payment';
+
 function App() {
   return (
     <div className="App">
@@ -13,8 +15,10 @@ function App() {
       <NavMenus/>
       <Product/>
       <SinglePage />
-      <Admin />
-      <Cart/>
+      <Admin /> 
+       <Cart/>
+       <Payment/> 
+     
     </div>
   );
 
