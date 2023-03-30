@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import photo1 from '../Images/photo1.png'
 import photo2 from '../Images/photo2.png'
 import photo3 from '../Images/photo3.png'
 import styled from 'styled-components';
 import styles from '../Components/SinglePage.module.css'
 import Accordion from 'react-bootstrap/Accordion';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 function SinglePage() {
+  const {id }= useParams()
+  const [data,setdata] = useState()
   const handleaddtocart = ()=>{
    
   }
+  console.log(id)
+  useEffect(()=>{
+    axios.get(`http://localhost:8080/products/${id}`)
+    .then((res)=>{
+       setdata(res.data)
+    })
+  },[])
+  console.log(data)
   return (
   <MAINDIV >
     <DIV className={styles.mainsection}>
