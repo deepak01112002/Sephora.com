@@ -3,18 +3,59 @@
     display: flex;
     justify-content: space-between;
     margin: auto;
+    margin-top: 10px;
 }
 .sidebar{
     position: relative;
     width: 25%;
-    border: 1px solid red;
+    border-right: 1px dotted black;
     height: 700px;
+    padding: 5px;
 }
 .gridsection{
     width: 70%;
-    border: 1px solid red;
+    
     
 }
 .rating input{
     margin-right: 5px; 
+}
+.spinner{
+    display: flex;
+    height: 50px;
+}
+.gridsection{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    padding: 5px;
+}
+
+.card{
+    border: 1px solid black;
+    height: 350px;
+}
+.card img{
+    height: 70%;
+    width: 100%;
+}
+.heading{
+    margin: 20px;
+}
+
+@media screen and (max-width:1200px) {
+    .mainsection{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .sidebar{
+        width: 100%;
+    }
+    .gridsection{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        
+    }
 }

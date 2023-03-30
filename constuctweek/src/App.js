@@ -6,15 +6,17 @@ import Admin from "./Gurmeet/Admin";
 import Navbar from './Navbar'
 import NavMenus from './NavMenus'
 import Cart from "./Sanjeet/Cart"
+import MainRoutes from './Components/MainRoutes';
 function App() {
   return (
     <div className="App">
       <Navbar/>
       <NavMenus/>
-      <Product/>
+      <MainRoutes/>
+      {/* <Product/>
       <SinglePage />
       <Admin />
-      <Cart/>
+      <Cart/> */}
     </div>
   );
 
