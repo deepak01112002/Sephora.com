@@ -1,14 +1,13 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import "../App.css";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Dashboard } from "../Gpages/Dashboard";
 import { About } from "../Gpages/About";
 import { Comment } from "../Gpages/Comment";
 import { Analytics } from "../Gpages/Analytics";
 import { Product } from "../Gpages/Product";
 import { ProductList } from "../Gpages/ProductList";
-import { EditProduct } from "../Gpages/EditProduct";
 
 const Admin = () => {
   return (
@@ -40,14 +39,12 @@ const Admin = () => {
 
       <Sidebar>
         <Routes>
-          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/comment" element={<Comment />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/product" element={<Product />} />
           <Route path="/productList" element={<ProductList />} />
-          <Route path="/edit/:id" element={<EditProduct />} />
-          <Route path="*" element={<h1>404 Page Not Found !</h1>} />
         </Routes>
       </Sidebar>
     </div>

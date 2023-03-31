@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../redux/productReducer/action";
-import { ProductList } from "./ProductList";
 
 const initialState = {
   title: "",
@@ -173,9 +172,6 @@ export const Dashboard = () => {
           Submit
         </button>
       </form>
-      <div style={{ marginTop: "15%" }}>
-        <ProductList />
-      </div>
     </div>
   );
 };

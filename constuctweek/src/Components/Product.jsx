@@ -29,10 +29,10 @@ function Product() {
            pricesort == "asc" ? setdata(res.data.sort((a,b)=>a.price - b.price)) : setdata(res.data.sort((a,b)=>b.price - a.price)) 
         }
     })
-  },[pricesort])
+  },[pricesort,data])
   useEffect(()=>{
     const params = {
-     Rating : rate ,
+     rate,
      color
      }
     setParams(params)
