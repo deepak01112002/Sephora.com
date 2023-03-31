@@ -880,7 +880,6 @@
       "Rating": "2.2K",
       "Price": "20"
     }
-    
   ],
   "users": [
     {
@@ -894,7 +893,54 @@
       "id": 1
     }
   ],
-  "cart" : []
+  "cart": [
+    {
+      "id": "7",
+      "image": "https://www.sephora.com/productimages/sku/s2210482-main-zoom.jpg?imwidth=164",
+      "title": "Lip Glowy Balm",
+      "description": "A lightweight, moisture-coating lip balm for hydrated, tinted, and kissable lips throughout the day.",
+      "color": "Berry",
+      "brand": "LANEIGE",
+      "category": "makeup",
+      "rating": "3.8K",
+      "price": "18",
+      "Quantity": 2
+    },
+    {
+      "id": "1",
+      "image": "https://www.sephora.com/productimages/sku/s2642296-main-zoom.jpg?pb=clean-planet-positive-badge-2021&imwidth=164",
+      "title": "Mini Revealer Super Creamy + Brightening Concealer and Daytime Eye Cream",
+      "description": "A crease-proof, medium-coverage, super creamy concealer, eye cream, and spot treatment in one that visibly brightens and helps reveal better-looking skin.",
+      "color": "Tone 04 N - light medium with golden undertones",
+      "brand": "Kosas",
+      "category": "makeup",
+      "rating": "440",
+      "price": "15",
+      "Quantity": 1
+    },
+    {
+      "id": "33",
+      "image": "https://www.sephora.com/productimages/sku/s2614394-main-zoom.jpg?pb=2020-03-sephora-clean-2019&imwidth=164",
+      "title": "Face Masks Fruit & Plant Extracts + Hydrating Hyaluronic Acid",
+      "description": "A compostable collection of targeted face masks with a second-skin effect for optimum absorption.",
+      "color": "",
+      "brand": "SEPHORA COLLECTION",
+      "category": "skincare",
+      "rating": "",
+      "price": "6",
+      "Quantity": 2
+    },
+    {
+      "id": "2",
+      "image": "https://www.sephora.com/productimages/sku/s1396399-main-zoom.jpg?imwidth=164",
+      "title": "Pure Radiant Tinted Moisturizer Broad Spectrum SPF 30",
+      "description": "A lightweight tinted moisturizer that hydrates and smooths skin while brightening with vitamin C and protecting with SPF 30.",
+      "color": "St. Moritz - M1 - medium with warm undertones, and a golden tone",
+      "brand": "NARS",
+      "category": "makeup",
+      "rating": "3.3K",
+      "price": "46",
+      "Quantity": 1
+    }
+  ]
 }
-
-
