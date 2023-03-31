@@ -51,9 +51,9 @@ const Navbar = () => {
             />
           </div>
           <div className="comm-text">
-           <Link to={"/login"}><p>
+           <p>
               Sign In <br /> <span>Free Shipping</span>
-            </p></Link>
+            </p>
           </div>
         </div>
         <div className="login-cart-options">
