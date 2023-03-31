@@ -27,7 +27,6 @@ function SinglePage() {
     } catch (error) {
     console.log("errro is ", error)
     }
-     
   }
   
   useEffect(()=>{
