@@ -11,6 +11,8 @@ function Product() {
     const [searchParams,setParams] = useSearchParams()
     const [rate,setrate] = useState([])
     const [color,setcolor] = useState([])
+    const [pricefilter,setpricefilter] = useState([])
+    const [pricesort,setpricesort] = useState("")
     const obj = {
       params:{
         rate:searchParams.getAll("rate"),
@@ -19,11 +21,15 @@ function Product() {
     }
   useEffect(()=>{
     
-    axios.get("https://63c636e7dcdc478e15bd1636.mockapi.io/api/v1/Clothes",obj)
+    axios.get("http://localhost:8080/products",obj)
     .then((res)=>{
-      setdata((res.data))
+      if(!pricesort){
+        setdata((res.data))
+        }else{
+           pricesort == "asc" ? setdata(res.data.sort((a,b)=>a.price - b.price)) : setdata(res.data.sort((a,b)=>b.price - a.price)) 
+        }
     })
-  },[])
+  },[pricesort,data])
   useEffect(()=>{
     const params = {
      rate,
@@ -51,7 +57,11 @@ function Product() {
      }
      setcolor(data)
   }
-
+   // sorting
+  const handlepricesort = (e)=>{
+    setpricesort(e.target.value)
+   
+   }
    
   return (
      
@@ -63,9 +73,9 @@ function Product() {
          <Accordion.Item >
         <Accordion.Header><b>Sort By Price</b></Accordion.Header>
           <Accordion.Body className={styles.rating}>
-              <input  type="radio" />  
+              <input onChange={handlepricesort} name="price"  id='asc' value={"asc"} type="radio" />  
               <label > <b>Low to Hight</b> </label><br />
-              <input type="radio" />  
+              <input  onChange={handlepricesort} name='price'  id='dsc' value={"dsc"} type="radio" />  
               <label ><b>High to Low</b></label><br />
           </Accordion.Body>
        </Accordion.Item>
@@ -130,7 +140,7 @@ function Product() {
         <div className={styles.gridsection}>
           
           {
-           data.length ? 
+           data && data.length ? 
            
            data.map((el)=>(
              
@@ -141,6 +151,7 @@ function Product() {
            
            ))
            : <span className={styles.spinner}>
+            <h1>Data Not Found...</h1>
            <Spinner animation="grow" variant="success" />
            <Spinner animation="grow" variant="danger" />
            <Spinner animation="grow" variant="warning" />

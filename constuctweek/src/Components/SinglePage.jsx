@@ -11,8 +11,23 @@ import { useParams } from 'react-router-dom';
 function SinglePage() {
   const {id }= useParams()
   const [data,setdata] = useState()
-  const handleaddtocart = ()=>{
-   
+  const handleaddtocart = async ()=>{
+    try {
+      return axios({
+        method : "post",
+        url : "http://localhost:8080/cart",
+        data:{
+          ...data,
+          "Quantity" : 1
+        }
+      }).then((res)=>{
+        alert("Added to cart")
+        
+      })
+    } catch (error) {
+    console.log("errro is ", error)
+    }
+     
   }
   console.log(id)
   useEffect(()=>{

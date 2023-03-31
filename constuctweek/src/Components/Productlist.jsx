@@ -18,6 +18,7 @@ function Productlist({ name, price, id, category, type, avatar }) {
       </div>
     </Link>
   );
+
 }
 
 export default Productlist;
