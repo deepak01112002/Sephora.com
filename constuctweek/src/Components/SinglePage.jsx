@@ -27,16 +27,15 @@ function SinglePage() {
     } catch (error) {
     console.log("errro is ", error)
     }
-     
   }
-  console.log(id)
+  
   useEffect(()=>{
     axios.get(`http://localhost:8080/products/${id}`)
     .then((res)=>{
        setdata(res.data)
     })
   },[])
-  console.log(data)
+  
   return (
   <MAINDIV >
     <DIV className={styles.mainsection}>
