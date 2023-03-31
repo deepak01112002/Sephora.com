@@ -1,42 +1,46 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addProduct } from "../redux/productReducer/action";
-import { ProductList } from "./ProductList";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import styled from "styled-components";
+import { editProduct } from "../redux/productReducer/action";
 
-const initialState = {
-  title: "",
-  image: "",
-  color: "",
-  brand: "",
-  price: "",
-  category: "",
-  rate: "",
-};
+export const EditProduct = () => {
+  const { id } = useParams();
+  const [data, setData] = useState("");
+  const [success, setSuccess] = useState(false);
 
-export const Dashboard = () => {
-  const [product, setProduct] = useState(initialState);
+  const product = useSelector((store) => store.productReducer.products);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    //input values
     const { name, value } = e.target;
-    setProduct((prev) => {
+    console.log(name, value);
+    setData((prev) => {
       return { ...prev, [name]: value };
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleEdit = (e) => {
     e.preventDefault();
-    // console.log(product);
-    dispatch(addProduct(product));
-    setProduct(initialState);
+    // console.log(data);
+    dispatch(editProduct(data, id)).then(() => {
+      setSuccess(true);
+    });
   };
 
+  useEffect(() => {
+    const data = product.find((el) => el.id === +id);
+    // console.log(data);
+    setData(data);
+
+    // console.log(id);
+  }, []);
   return (
-    <div>
-      <h1>Add Products</h1>
+    <DIV>
+      <h3>Edit Product:{id}</h3>
+      <h2>{success && "Product Edit Successfully!"}</h2>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleEdit}
         style={{
           border: "1px solid black",
           width: "60%",
@@ -56,10 +60,10 @@ export const Dashboard = () => {
               type="text"
               className="form-control"
               id="exampleInputEmail1"
-              name="title"
+              name={"title"}
               placeholder="Title"
-              value={product.title}
-              onChange={(e) => handleChange(e)}
+              value={data.title}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-3">
@@ -69,10 +73,10 @@ export const Dashboard = () => {
               type="text"
               className="form-control"
               id="exampleInputEmail1"
-              name="image"
+              name={"image"}
               placeholder="Link"
-              value={product.image}
-              onChange={(e) => handleChange(e)}
+              value={data.image}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-3">
@@ -81,10 +85,10 @@ export const Dashboard = () => {
               type="text"
               className="form-control"
               id="exampleInputEmail1"
-              name="color"
+              name={"color"}
               placeholder="Color"
-              value={product.color}
-              onChange={(e) => handleChange(e)}
+              value={data.color}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -95,10 +99,10 @@ export const Dashboard = () => {
               type="text"
               className="form-control"
               id="exampleInputEmail1"
-              name="brand"
+              name={"brand"}
               placeholder="Brand"
-              value={product.brand}
-              onChange={(e) => handleChange(e)}
+              value={data.brand}
+              onChange={handleChange}
             />
           </div>
           <div className="mb-3">
@@ -107,20 +111,21 @@ export const Dashboard = () => {
               type="text"
               className="form-control"
               id="exampleInputEmail1"
-              name="price"
+              name={"price"}
               placeholder="$"
-              value={product.price}
-              onChange={(e) => handleChange(e)}
+              value={data.price}
+              onChange={handleChange}
             />
           </div>
 
           <div className="mb-3" style={{ width: "205px" }}>
             <label className="form-label">Category</label>
             <select
-              name="category"
+              name={"category"}
               id=""
+              value={data.category}
               className="form-control"
-              onChange={(e) => handleChange(e)}
+              onChange={handleChange}
             >
               <option value="">Select Category</option>
               <option value="makeup">Makeup</option>
@@ -141,10 +146,10 @@ export const Dashboard = () => {
               type="text"
               className="form-control"
               id="exampleInputEmail1"
-              name="rate"
+              name={"rate"}
               placeholder="Rating"
-              value={product.rate}
-              onChange={(e) => handleChange(e)}
+              value={data.rate}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -157,10 +162,10 @@ export const Dashboard = () => {
             className="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
-            name="description"
-            value={product.description}
+            name={"description"}
+            value={data.description}
             placeholder="Summary"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             style={{ width: "575px" }}
           ></textarea>
         </div>
@@ -170,12 +175,37 @@ export const Dashboard = () => {
           className="btn btn-primary"
           style={{ width: "140px" }}
         >
-          Submit
+          Edit
         </button>
       </form>
-      <div style={{ marginTop: "15%" }}>
-        <ProductList />
-      </div>
-    </div>
+    </DIV>
   );
 };
+
+const DIV = styled.div`
+  width: 400px;
+  margin: 40px auto;
+  border: 1px solid grey;
+  padding: 20px;
+
+  input {
+    width: 80%;
+    height: 40px;
+    font-size: large;
+  }
+  button {
+    width: 28%;
+    height: 35px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  select {
+    width: 81.5%;
+    height: 30px;
+    font-size: large;
+  }
+`;
