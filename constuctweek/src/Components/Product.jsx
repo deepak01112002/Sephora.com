@@ -21,7 +21,7 @@ function Product() {
     }
   useEffect(()=>{
     
-    axios.get("https://63c636e7dcdc478e15bd1636.mockapi.io/api/v1/Clothes",obj)
+    axios.get("http://localhost:8080/products",obj)
     .then((res)=>{
       if(!pricesort){
         setdata((res.data))
@@ -151,6 +151,7 @@ function Product() {
            
            ))
            : <span className={styles.spinner}>
+            <h1>Data Not Found...</h1>
            <Spinner animation="grow" variant="success" />
            <Spinner animation="grow" variant="danger" />
            <Spinner animation="grow" variant="warning" />

@@ -22,7 +22,7 @@ function SinglePage() {
         }
       }).then((res)=>{
         alert("Added to cart")
-        setadded(true)
+        
       })
     } catch (error) {
     console.log("errro is ", error)
