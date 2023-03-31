@@ -8,6 +8,8 @@ import NavMenus from './NavMenus'
 import Cart from "./Sanjeet/Cart"
 import Payment from './Sanjeet/Payment';
 import MainRoutes from './Components/MainRoutes';
+import Signup from './Components/Signup';
+
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
       <Navbar/>
       <NavMenus/>
       <MainRoutes/>
-      <Payment/> 
+      {/* <Payment/>  */}
+      {/* <Cart/> */}
+      <Signup/>
     </div>
   );
 

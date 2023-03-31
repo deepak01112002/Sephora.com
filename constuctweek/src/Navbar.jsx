@@ -51,27 +51,22 @@ const Navbar = () => {
             />
           </div>
           <div className="comm-text">
-            <p>
+           <Link to={"/login"}><p>
               Sign In <br /> <span>Free Shipping</span>
-            </p>
+            </p></Link>
           </div>
         </div>
         <div className="login-cart-options">
-          <img
-            className="login-cart-care"
-            src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png"
-            alt=""
-          />
           <img
             className="login-cart-like"
             src="https://cdn-icons-png.flaticon.com/512/535/535285.png"
             alt=""
           />
-          <img
+         <Link to={'/cart'}> <img
             className="login-cart-bag"
             src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png"
             alt=""
-          />
+          /></Link>
         </div>
       </div>
     </div>
