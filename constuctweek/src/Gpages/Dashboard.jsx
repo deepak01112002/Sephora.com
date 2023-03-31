@@ -5,9 +5,11 @@ import { addProduct } from "../redux/productReducer/action";
 const initialState = {
   title: "",
   image: "",
+  color: "",
   brand: "",
   price: "",
   category: "",
+  rate: "",
 };
 
 export const Dashboard = () => {
@@ -72,6 +74,18 @@ export const Dashboard = () => {
               onChange={(e) => handleChange(e)}
             />
           </div>
+          <div className="mb-3">
+            <label className="form-label">Color</label>
+            <input
+              type="text"
+              className="form-control"
+              id="exampleInputEmail1"
+              name="color"
+              placeholder="Color"
+              value={product.color}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
         </div>
         <div style={{ display: "flex", gap: "10px" }}>
           <div className="mb-3">
@@ -120,6 +134,18 @@ export const Dashboard = () => {
               <option value="minsize">Mini Size</option>
             </select>
           </div>
+          <div className="mb-3">
+            <label className="form-label">Rating</label>
+            <input
+              type="text"
+              className="form-control"
+              id="exampleInputEmail1"
+              name="rate"
+              placeholder="Rating"
+              value={product.rate}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
         </div>
 
         <div className="mb-3">
@@ -130,7 +156,10 @@ export const Dashboard = () => {
             className="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
+            name="description"
+            value={product.description}
             placeholder="Summary"
+            onChange={(e) => handleChange(e)}
             style={{ width: "575px" }}
           ></textarea>
         </div>
