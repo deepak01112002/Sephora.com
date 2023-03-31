@@ -3,18 +3,12 @@ import "./App.css";
 import SinglePage from "./Components/SinglePage";
 import Product from "./Components/Product";
 import Admin from "./Gurmeet/Admin";
+
+import Payment from "./Sanjeet/Payment";
+import MainRoutes from "./Components/MainRoutes";
 import Navbar from "./Navbar";
 import NavMenus from "./NavMenus";
 import Cart from "./Sanjeet/Cart";
-import Payment from "./Sanjeet/Payment";
-import MainRoutes from "./Components/MainRoutes";
-import Navbar from './Navbar'
-import NavMenus from './NavMenus'
-import Cart from "./Sanjeet/Cart"
-import Payment from './Sanjeet/Payment';
-import MainRoutes from './Components/MainRoutes';
-
-
 
 function App() {
   return (
@@ -23,12 +17,11 @@ function App() {
       <NavMenus />
       <MainRoutes />
       <Payment />
-      <Navbar/>
-      <NavMenus/>
-      <MainRoutes/>
+      <Navbar />
+      <NavMenus />
+      <MainRoutes />
       {/* <Payment/>  */}
       {/* <Cart/> */}
-      
     </div>
   );
 }
