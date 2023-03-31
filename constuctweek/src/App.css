@@ -457,6 +457,7 @@ main {
   padding: 20px;
 }
 .login-cart-options img {
+  margin: 15px;
   width: 20px;
 }
 .login-cart-options .login-cart-care:hover {
