@@ -7,8 +7,8 @@
       "price": "12580",
       "category": "men",
       "id": 1,
-      "color" : "red",
-      "rate":5
+      "color": "red",
+      "rate": 5
     },
     {
       "title": "Nike shoes",
@@ -17,8 +17,8 @@
       "price": "12580",
       "category": "men",
       "id": 1,
-      "color" : "red",
-      "rate":4
+      "color": "red",
+      "rate": 4
     },
     {
       "title": "Nike shoes",
@@ -27,10 +27,20 @@
       "price": "24",
       "category": "men",
       "id": 1,
-      "color" : "red",
-      "rate":4
+      "color": "red",
+      "rate": 4
     }
-
+  ],
+  "users": [
+    {
+      "email": "deepak@gmail.com",
+      "password": "1235",
+      "id": 1
+    },
+    {
+      "email": "",
+      "password": "789",
+      "id": 1
+    }
   ]
 }
-
