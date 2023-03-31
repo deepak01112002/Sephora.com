@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 
 function SinglePage() {
   const {id }= useParams()
-  const [data,setdata] = useState()
+  const [data,setdata] = useState([])
   const handleaddtocart = async ()=>{
     try {
       return axios({
@@ -29,27 +29,27 @@ function SinglePage() {
     }
      
   }
-  console.log(id)
+  
   useEffect(()=>{
     axios.get(`http://localhost:8080/products/${id}`)
     .then((res)=>{
        setdata(res.data)
     })
   },[])
-  console.log(data)
+  
   return (
   <MAINDIV >
     <DIV className={styles.mainsection}>
         <div className='imagesection'>
-          <img className='mainimage' src="https://www.sephora.com/productimages/sku/s2518934-main-zoom.jpg?imwidth=930" alt="lipstick" />
+          <img className='mainimage' src={data.image} alt="lipstick" />
         </div>
         <div>
-           <h2>Rare Beauty by Selena Gamez</h2>
-           <h3>Warm Wishes Effortless Bronzer Sticks</h3>
+           <h3>{data.title}</h3>
+           <h4>{data.description}</h4>
            <img src={photo1} alt="" />
-           <p><b>$26.00</b> get it for $24.70 (5% off) with Auto-Replenish</p>
+           <p><b>${data.price}</b> get it for $24.70 (5% off) with Auto-Replenish</p>
            <p>or 4 payments of $6.50 with <b>Klarna</b>, or <b>afterpay</b></p>
-           <p>Color: Happy - dewy cool pink</p>
+           <p>Color: {data.color}</p>
            <img src={photo2} alt="color" />
            <div className='shippart'>
               <h6>Get it shipped</h6>
@@ -196,8 +196,9 @@ const DIV = styled.div`
   margin:auto;
   justify-content:space-around;
   .imagesection{
-    width:40%;
+    width:60%;
     height:70vh;
+    margin-right:25px;
     
   }
   .mainimage{
