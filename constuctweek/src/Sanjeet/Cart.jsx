@@ -9,6 +9,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 
 const initialState = {
   data: [],
@@ -572,7 +573,7 @@ const Cart = () => {
             </Box>
 
             <Box textAlign="center">
-              <Button
+            <Link to={'/payment'}><Button
                 pr="25px"
                 pl="25px"
                 pt="5px"
@@ -583,7 +584,7 @@ const Cart = () => {
                 borderStyle="hidden"
               >
                 Checkout Shipped Items
-              </Button>
+              </Button></Link>
             </Box>
 
             <Box

@@ -5,7 +5,8 @@ import Product from './Product'
 import SinglePage from './SinglePage'
 import Home from '../Pages/Home'
 import Cart from '../Sanjeet/Cart'
-import Login from './Login'
+
+import Payment from '../Sanjeet/Payment'
 
 function MainRoutes() {
   return (
@@ -13,11 +14,13 @@ function MainRoutes() {
     <Routes>
         <Route path={"/"} element={<Home/>}></Route>
        
-        <Route path='/admin' element={<Admin/>}></Route>
         <Route path='/Makeup' element={<Product/>}></Route>
-        <Route path="/admin" element={<Admin/>}></Route>
+        <Route path='/admin' element={<Admin/>}></Route>
+        
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path="/Makeup/:id" element={<SinglePage/>}></Route>
+        <Route path='/payment' element={<Payment/>}></Route>
+        <Route path="*" element={<h1>Page Not Found .......</h1>}></Route>
         
     </Routes>        
     </div>
