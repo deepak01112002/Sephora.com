@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../redux/productReducer/action";
+import { ProductList } from "./ProductList";
 
 const initialState = {
   title: "",
@@ -44,8 +45,8 @@ export const Dashboard = () => {
           borderRadius: "10px",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
+          // justifyContent: "center",
+          // alignItems: "center",
         }}
       >
         <div style={{ display: "flex", gap: "10px" }}>
@@ -172,6 +173,10 @@ export const Dashboard = () => {
           Submit
         </button>
       </form>
+
+      <div style={{ marginTop: "15%" }}>
+        <ProductList />
+      </div>
     </div>
   );
 };
