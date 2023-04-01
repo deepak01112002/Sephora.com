@@ -7,22 +7,19 @@ import Home from '../Pages/Home'
 import Cart from '../Sanjeet/Cart'
 
 import Payment from '../Sanjeet/Payment'
+import { Dashboard } from '../Gpages/Dashboard'
 
 function MainRoutes() {
   return (
     <div>
     <Routes>
         <Route path={"/"} element={<Home/>}></Route>
-       
         <Route path='/Makeup' element={<Product/>}></Route>
-        <Route path='/admin' element={<Admin/>}></Route>
-        
+        <Route path='/admin' element={<Dashboard/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path="/Makeup/:id" element={<SinglePage/>}></Route>
         <Route path='/payment' element={<Payment/>}></Route>
-        <Route path="*" element={<h1>Page Not Found .......</h1>}></Route>
-        
-    </Routes>        
+      </Routes>        
     </div>
   )
 }

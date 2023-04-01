@@ -68,7 +68,7 @@ const Cart = () => {
     dispatch({ type: "Request" });
 
     axios
-      .get("http://localhost:8080/cart")
+      .get("https://mock-server-app-0i38.onrender.com/cart")
       .then((res) => {
         dispatch({ type: "Success", payload: res.data });
         console.log(res.data);
@@ -94,7 +94,7 @@ const Cart = () => {
   const Handleadd = (id, Quantity, val) => {
     data.map((el) => (el.id === id ? (Quantity = Quantity + val) : Quantity));
     axios
-      .patch(`http://localhost:8080/cart/${id}`, {
+      .patch(`https://mock-server-app-0i38.onrender.com/cart/${id}`, {
         Quantity: Quantity,
       })
       .then(() => getData());
@@ -102,7 +102,7 @@ const Cart = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8080/cart/${id}`)
+      .delete(`https://mock-server-app-0i38.onrender.com/cart/${id}`)
       .then((res) => {
         getData();
         a();
@@ -133,7 +133,6 @@ const Cart = () => {
         <Box>
           <Box
             maxW="max-content"
-            border="1px solid black"
             mt={20}
             borderRadius="5px"
             p="15"
@@ -161,11 +160,7 @@ const Cart = () => {
 
           <Box>
             <Box
-              ml={{ base: 0, md: 60 }}
-              p="15"
-              border="1px solid black"
-              mt="5px"
-              borderRadius="5px"
+              mt="5px" borderRadius="5px" margin="auto"
               bg="ButtonShadow"
             >
               <h6>Get It Shipped({data.length})</h6>
@@ -185,7 +180,8 @@ const Cart = () => {
 
                 <Box
                   display={"flex"}
-                  justifyContent="space-evenly"
+                  maxW="max-content"
+                  margin="auto"
                   flexWrap="wrap"
                 >
                   <Box border="1px solid grey" p={5} mt="5px">
@@ -257,14 +253,14 @@ const Cart = () => {
                       <Flex
                         gap={5}
                         direction={"column"}
-                        align="center"
+                        
                         flex="1"
                       >
                         <Box
-                          width="100%"
+                          width="70%"
                           display="flex"
-                          justifyContent="space-between"
-                          p={15}
+                          justifyContent="space-evenly"
+                          
                         >
                           <Box maxW="max-content">
                             <Image mt="3px" src={el.image} />

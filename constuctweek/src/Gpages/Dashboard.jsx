@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../redux/productReducer/action";
+import { Products } from "./Products";
 
 const initialState = {
   title: "",
@@ -33,7 +34,7 @@ export const Dashboard = () => {
 
   return (
     <div>
-      <h1>Add Products</h1>
+      <h1 style={{margin:"10px"}}>Add Products</h1>
       <form
         onSubmit={handleSubmit}
         style={{
@@ -46,6 +47,7 @@ export const Dashboard = () => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          margin:"auto"
         }}
       >
         <div style={{ display: "flex", gap: "10px" }}>
@@ -172,6 +174,7 @@ export const Dashboard = () => {
           Submit
         </button>
       </form>
+      <Products/>
     </div>
   );
 };

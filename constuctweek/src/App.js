@@ -8,6 +8,7 @@ import NavMenus from './NavMenus'
 import Cart from "./Sanjeet/Cart"
 import Payment from './Sanjeet/Payment';
 import MainRoutes from './Components/MainRoutes';
+import Footer from './Footer';
 
 
 
@@ -19,7 +20,7 @@ function App() {
       <MainRoutes/>
       {/* <Payment/>  */}
       {/* <Cart/> */}
-      
+      <Footer/>
     </div>
   );
 
