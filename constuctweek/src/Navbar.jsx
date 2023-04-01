@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
+
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -7,11 +9,14 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 const Navbar = () => {
+
    const [showSignUpModal, setShowSignUpModal] = useState(false);
+
     
   const handleShowSignUpModal = () => setShowSignUpModal(true);
   
   const handleHideSignUpModal = () => setShowSignUpModal(false);
+
   return (
     <div>
       <div id="top-add">
@@ -55,6 +60,7 @@ const Navbar = () => {
             <p className="comm-text">Community</p>
           </div>
         </div>
+
         <div className="nav-signup">
         <div className="nav-signup" onClick={handleShowSignUpModal}>
           <div className="nav-small-icons-sign">
@@ -68,12 +74,18 @@ const Navbar = () => {
            <p>
               Sign In <br /> <span>Free Shipping</span>
             </p>
+
           </div>
+          {showSignUpModal && (
+            <SignUpModal show={showSignUpModal} onHide={handleHideSignUpModal} />
+           )}
         </div>
+
         {showSignUpModal && (
             <SignUpModal show={showSignUpModal} onHide={handleHideSignUpModal} />
            )}
         </div>
+
         <div className="login-cart-options">
          
          <Link to={'/cart'}> <img
@@ -81,13 +93,18 @@ const Navbar = () => {
             src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png"
             alt=""
           /></Link>
+
         </div>
       </div>
+     
     </div>
+    
   );
+
 };
 
 export default Navbar;
+
 
 function SignUpModal({ show, onHide }) {
   const [isSignedUp, setIsSignedUp] = useState(false);
@@ -225,4 +242,6 @@ function LoginModal({ show, onHide }) {
   </Modal.Footer>
 </Modal>
 );
+
 }
+

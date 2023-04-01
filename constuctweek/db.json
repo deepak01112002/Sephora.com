@@ -900,17 +900,6 @@
     }
   ],
   "cart": [
-    {
-      "id": "1",
-      "image": "https://www.sephora.com/productimages/sku/s2642296-main-zoom.jpg?pb=clean-planet-positive-badge-2021&imwidth=164",
-      "title": "Mini Revealer Super Creamy + Brightening Concealer and Daytime Eye Cream",
-      "description": "A crease-proof, medium-coverage, super creamy concealer, eye cream, and spot treatment in one that visibly brightens and helps reveal better-looking skin.",
-      "color": "yellow",
-      "brand": "Kosas",
-      "category": "makeup",
-      "rating": "5",
-      "price": "15",
-      "Quantity": 1
-    }
+   
   ]
 }

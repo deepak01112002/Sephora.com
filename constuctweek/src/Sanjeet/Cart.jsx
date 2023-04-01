@@ -9,7 +9,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const initialState = {
   data: [],
@@ -159,12 +159,14 @@ const Cart = () => {
           </Box>
 
           <Box>
+
             <Box
               mt="5px" borderRadius="5px" margin="auto"
               bg="ButtonShadow"
             >
+
               <h6>Get It Shipped({data.length})</h6>
-              <Box bg="white" ml={{ base: 0, md: 60 }} p="15">
+              <Box bg="white" margin="5px">
                 <h6 style={{ fontSize: "15px", fontFamily: "sans-serif" }}>
                   Beauty Insiders enjoy{" "}
                   <span style={{ fontSize: "15px", fontWeight: "bold" }}>
@@ -180,9 +182,13 @@ const Cart = () => {
 
                 <Box
                   display={"flex"}
+
                   maxW="max-content"
                   margin="auto"
+
                   flexWrap="wrap"
+                  margin="auto"
+                 
                 >
                   <Box border="1px solid grey" p={5} mt="5px">
                     <h6>
@@ -253,6 +259,7 @@ const Cart = () => {
                       <Flex
                         gap={5}
                         direction={"column"}
+
                         
                         flex="1"
                       >
@@ -266,7 +273,8 @@ const Cart = () => {
                             <Image mt="3px" src={el.image} />
                           </Box>
 
-                          <Box width="70%">
+
+                          <Box>
                             <span
                               style={{
                                 fontFamily: "sans-serif",
@@ -362,7 +370,7 @@ const Cart = () => {
                                 fontWeight: "bolder",
                               }}
                             >
-                              ${el.price * el.Quantity}.00
+                              ${el.price * el.Quantity}
                             </h6>
                           </Box>
                         </Box>
@@ -416,7 +424,7 @@ const Cart = () => {
                 </Box>
 
                 <Box pl="35">
-                {data?.length === 0 ? (
+                  {data?.length === 0 ? (
                     <h6
                       style={{
                         fontSize: "15px",
@@ -497,7 +505,7 @@ const Cart = () => {
                   </h6>
                 </Box>
                 <Box pl="35">
-                {data?.length === 0 ? (
+                  {data?.length === 0 ? (
                     <h6
                       style={{
                         fontSize: "15px",
@@ -569,18 +577,20 @@ const Cart = () => {
             </Box>
 
             <Box textAlign="center">
-            <Link to={'/payment'}><Button
-                pr="25px"
-                pl="25px"
-                pt="5px"
-                pb="5px"
-                color="white"
-                bg="red"
-                borderRadius="50px"
-                borderStyle="hidden"
-              >
-                Checkout Shipped Items
-              </Button></Link>
+              <Link to={"/payment"}>
+                <Button
+                  pr="25px"
+                  pl="25px"
+                  pt="5px"
+                  pb="5px"
+                  color="white"
+                  bg="red"
+                  borderRadius="50px"
+                  borderStyle="hidden"
+                >
+                  Checkout Shipped Items
+                </Button>
+              </Link>
             </Box>
 
             <Box

@@ -1,8 +1,8 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import "../App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const Admin = () => {
   return (
@@ -34,11 +34,11 @@ const Admin = () => {
      
       {/* <Sidebar>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/comment" element={<Comment />} />
           <Route path="/analytics" element={<Analytics />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/productList" element={<ProductList />} />
         </Routes>
       </Sidebar> */}

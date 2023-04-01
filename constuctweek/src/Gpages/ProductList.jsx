@@ -1,8 +1,11 @@
+
 import React, { useEffect,useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../redux/productReducer/action";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { ProductCard } from "./ProductCard";
+
 import {
   Table,
   Thead,
@@ -20,6 +23,7 @@ export const ProductList = () => {
   const [searchParams,setParams] = useSearchParams();
   const dispatch = useDispatch();
   const [page,setpage] = useState(1)
+
   const location = useLocation();
 
   const { products } = useSelector((store) => store.productReducer);
@@ -27,13 +31,16 @@ export const ProductList = () => {
   let obj = {
     params: {
       category: searchParams.getAll("category"),
+
       _limit:10,
       _page:searchParams.get("page")
+
     },
   };
 
   useEffect(() => {
     dispatch(getProducts(obj));
+
   }, [location.search,page]);
    useEffect(()=>{
     const params = {
@@ -70,6 +77,7 @@ export const ProductList = () => {
         <button style={{padding:"10px"}} disabled>{page}</button>
         <button style={{padding:"10px"}} onClick={()=>setpage(page+1)}>Next</button>
         </div>
+
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 import {
     Table,
     Thead,
@@ -12,6 +13,7 @@ import {
     TableCaption,
     TableContainer,
   } from '@chakra-ui/react'
+
 export const ProductCard = ({
   image,
   title,
@@ -24,6 +26,7 @@ export const ProductCard = ({
   id,
 }) => {
   return (
+
     <Tr>
            <Td scope="row">{id}</Td>
             <Td>
@@ -39,6 +42,7 @@ export const ProductCard = ({
         
     
        {/* <img src={image} alt="Product Image" />
+
       <h3>{title}</h3>
       <h3>Price : ${price}</h3>
       <p>Brand: {brand}</p>
@@ -47,6 +51,8 @@ export const ProductCard = ({
       <button>
         <Link to={`/edit/${id}`}>Edit</Link>
       </button> */}
+
     </Tr>
   );
 };
+
