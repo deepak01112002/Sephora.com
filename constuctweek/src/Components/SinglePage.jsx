@@ -6,11 +6,11 @@ import styled from 'styled-components';
 import styles from '../Components/SinglePage.module.css'
 import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 
 function SinglePage() {
   const {id }= useParams()
-  const [data,setdata] = useState()
+  const [data,setdata] = useState([])
   const handleaddtocart = async ()=>{
     try {
       return axios({
@@ -22,11 +22,12 @@ function SinglePage() {
         }
       }).then((res)=>{
         alert("Added to cart")
-        
+       
       })
     } catch (error) {
     console.log("errro is ", error)
     }
+    
   }
   
   useEffect(()=>{
@@ -35,18 +36,18 @@ function SinglePage() {
        setdata(res.data)
     })
   },[])
-  
+
   return (
   <MAINDIV >
     <DIV className={styles.mainsection}>
         <div className='imagesection'>
-          <img className='mainimage' src="https://www.sephora.com/productimages/sku/s2518934-main-zoom.jpg?imwidth=930" alt="lipstick" />
+          <img className='mainimage' src={data.image} alt="lipstick" />
         </div>
         <div>
-           <h2>Rare Beauty by Selena Gamez</h2>
-           <h3>Warm Wishes Effortless Bronzer Sticks</h3>
+           <h5>{data.title}</h5>
+           <h6>{data.description}</h6>
            <img src={photo1} alt="" />
-           <p><b>$26.00</b> get it for $24.70 (5% off) with Auto-Replenish</p>
+           <p><b>${data.price}</b> get it for $24.70 (5% off) with Auto-Replenish</p>
            <p>or 4 payments of $6.50 with <b>Klarna</b>, or <b>afterpay</b></p>
            <p>Color: Happy - dewy cool pink</p>
            <img src={photo2} alt="color" />
@@ -67,7 +68,7 @@ function SinglePage() {
       </DIV>
       <h2>Highlights</h2>
       <img className='highlights' src={photo3} alt="highlight" />
-      <h2>About the Product</h2>
+        <h2>About the Product</h2>
       <div id={styles.aboutproduct} className='aboutproduct'>
         <p>Item 2362085</p>
         <div>
@@ -197,7 +198,7 @@ const DIV = styled.div`
   .imagesection{
     width:40%;
     height:70vh;
-    
+    margin-right:60px
   }
   .mainimage{
     width:100%;
@@ -237,6 +238,7 @@ const MAINDIV = styled.div`
   width:85%;
   margin:auto;
   padding:5px;
+  margin-top:10px;
   .highlights{
     width:70%;
     margin-left:180px;
@@ -261,17 +263,15 @@ const MAINDIV = styled.div`
    }
   .moreproduct{
     width:80%;
-    height:350px;
+    height:260px;
     padding:10px;
     margin:5px;
+    line-height: 1;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
-  .moreproduct:hover{
-    width : 90%;
-    transition: 1s ease-in;
-  }
+ 
   .moreproduct img{
-    height:50%;
+    height:30%;
     margin-bottom:10px;
     
     
