@@ -904,42 +904,18 @@
       "category": "makeup",
       "rating": "3.8K",
       "price": "18",
-      "Quantity": 2
+      "Quantity": 5
     },
     {
-      "id": "1",
-      "image": "https://www.sephora.com/productimages/sku/s2642296-main-zoom.jpg?pb=clean-planet-positive-badge-2021&imwidth=164",
-      "title": "Mini Revealer Super Creamy + Brightening Concealer and Daytime Eye Cream",
-      "description": "A crease-proof, medium-coverage, super creamy concealer, eye cream, and spot treatment in one that visibly brightens and helps reveal better-looking skin.",
-      "color": "Tone 04 N - light medium with golden undertones",
-      "brand": "Kosas",
-      "category": "makeup",
-      "rating": "440",
-      "price": "15",
-      "Quantity": 1
-    },
-    {
-      "id": "33",
-      "image": "https://www.sephora.com/productimages/sku/s2614394-main-zoom.jpg?pb=2020-03-sephora-clean-2019&imwidth=164",
-      "title": "Face Masks Fruit & Plant Extracts + Hydrating Hyaluronic Acid",
-      "description": "A compostable collection of targeted face masks with a second-skin effect for optimum absorption.",
+      "id": "9",
+      "image": "https://www.sephora.com/productimages/sku/s2532588-main-zoom.jpg?imwidth=164",
+      "title": "Multi-Peptide Lash and Brow Serum",
+      "description": "A concentrated, lightweight serum with four peptide technologies to promote the look of thicker, fuller, and healthier lashes and brows.",
       "color": "",
-      "brand": "SEPHORA COLLECTION",
-      "category": "skincare",
-      "rating": "",
-      "price": "6",
-      "Quantity": 2
-    },
-    {
-      "id": "2",
-      "image": "https://www.sephora.com/productimages/sku/s1396399-main-zoom.jpg?imwidth=164",
-      "title": "Pure Radiant Tinted Moisturizer Broad Spectrum SPF 30",
-      "description": "A lightweight tinted moisturizer that hydrates and smooths skin while brightening with vitamin C and protecting with SPF 30.",
-      "color": "St. Moritz - M1 - medium with warm undertones, and a golden tone",
-      "brand": "NARS",
+      "brand": "The Ordinary",
       "category": "makeup",
-      "rating": "3.3K",
-      "price": "46",
+      "rating": "2.4K",
+      "price": "14.5",
       "Quantity": 1
     }
   ]
