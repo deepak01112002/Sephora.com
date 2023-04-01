@@ -397,14 +397,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
-
-.full-width {
-  width: 100%;
-  background-color: black;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  z-index: 999;
   position: sticky;
   top: 0;
 }
@@ -612,36 +605,250 @@ main {
     object-fit: cover;
   }
   .slide-text-box {
-   display: none;
+    display: none;
   }
 }
-.slide-text-box h5:hover{
+.slide-text-box h5:hover {
   cursor: pointer;
   text-decoration: underline;
 }
-.slide-text-box p:hover{
+.slide-text-box p:hover {
   cursor: pointer;
   text-decoration: underline;
 }
-.just-dropped{
+.just-dropped {
   margin-top: 70px;
 }
-.just-dropped-text{
+.just-dropped-text {
   display: flex;
-  width: 50%;
+  width: 68%;
   margin: auto;
   justify-content: space-between;
 }
-.just-dropped-text h5{
+.just-dropped-text h5 {
   font-weight: bold;
 }
-.just-dropped-text p{
+.just-dropped-text p {
   color: blue;
 }
-.just-dropped-text p:hover{
+.just-dropped-text p:hover {
   cursor: pointer;
   text-decoration: underline;
 }
+.dropped-products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.dropped-products > div {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 250px;
+  transform: translateY(0px);
+  transition: transform 0.2s;
+}
+.dropped-products > div:hover {
+  transform: translateY(-10px);
+  transition: transform 0.2s;
+}
+.dropped-products div h5 {
+  font-size: 16px;
+  margin-top: 12px;
+  margin-left: 12px;
+}
+.dropped-products div p {
+  font-size: 13px;
+  margin-top: 12px;
+  margin-left: 12px;
+}
+.dropped-products div button {
+  border: 0;
+  background-color: black;
+  color: white;
+  font-size: 11px;
+  border-radius: 7px;
+  cursor: auto;
+}
+.beauty-offers {
+  margin-top: 50px;
+}
+.beauty-offers-text {
+  display: flex;
+  width: 68%;
+  margin: auto;
+  justify-content: space-between;
+}
+.beauty-offers-text h5 {
+  font-weight: bold;
+}
+.beauty-offers-text p {
+  color: blue;
+}
+.beauty-offers-text p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.beauty-products {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 80%;
+  align-items: center;
+  margin: auto;
+}
+.beauty-products > div {
+  width: 250px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transform: translateY(0px);
+  transition: transform 0.2s;
+}
+.beauty-products > div:hover {
+  transform: translateY(-10px);
+  transition: transform 0.2s;
+}
+.beauty-products img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+.beauty-products h5 {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.beauty-products h6 {
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.beauty-products p {
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.bty-btn {
+  display: flex;
+  justify-content: space-around;
+}
+.bty-btn button {
+  border-radius: 15px;
+  background-color: white;
+  height: 30px;
+}
+.bty-btn button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+.bty-btn p {
+  color: blue;
+}
+.bty-btn p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.skin-care {
+  display: flex;
+  width: 68%;
+  margin: 50px auto;
+  gap: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #d7d5d5;
+  border-top: 1px solid #d7d5d5;
+}
+.skin-care div {
+  width: 33%;
+  border-radius: 5px;
+}
+.skin-care div:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 
-/**/
-
+.skin-care div img {
+  width: 100%;
+  height: auto;
+}
+.skin-care div:nth-child(1) {
+  background-color: #9198a8;
+}
+.skin-care div:nth-child(3) {
+  background-color: #d2b6a9;
+}
+.skin-care div:nth-child(2) {
+  background-color: #bb126f;
+}
+.skin-care h4 {
+  font-size: 20px;
+  margin: 10px;
+}
+.skin-care h5 {
+  font-size: 13px;
+  margin: 10px;
+}
+.skin-care p {
+  font-size: 15px;
+  margin: 10px;
+}
+.featured-cat {
+  display: flex;
+  margin: 100px auto;
+  width: 68%;
+  justify-content: space-between;
+  border-top: 1px solid #d7d5d5;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.featured-products {
+  display: flex;
+  gap: 10px;
+}
+.featured-products > div {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 100px;
+  position: relative;
+  height: 120px;
+  padding: 5px;
+  transform: translateY(0px);
+  transition: transform 0.2s;
+}
+.featured-products > div :hover {
+  transform: translateY(-10px);
+  transition: transform 0.2s;
+}
+.featured-products img {
+  width: 60px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+}
+.featured-cat span {
+  color: blue;
+  cursor: pointer;
+}
+.featured-cat span:hover {
+  text-decoration: underline;
+}
+.bb img {
+  margin-top: 25px;
+}
+.cc img {
+  margin-top: 25px;
+}
+.feedback-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cccccc;
+  font-weight: bold;
+}
+.feedback-bar p {
+  margin-top: 15px;
+}
+.feedback-bar p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

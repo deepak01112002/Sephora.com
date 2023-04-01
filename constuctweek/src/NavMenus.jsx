@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+
 const NavMenus=()=>{
     return (
         <div className="full-width">
@@ -28,5 +29,6 @@ const NavMenus=()=>{
         </div>
       );
 }
+
 
 export default NavMenus;

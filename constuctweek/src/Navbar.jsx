@@ -28,7 +28,9 @@ const Navbar = () => {
             />
           </div>
           <div>
-          <Link to={"/admin"}><p className="comm-text">Stores & Services</p></Link>
+            <Link to={"/admin"}>
+              <p className="comm-text">Stores & Services</p>
+            </Link>
           </div>
         </div>
         <div className="nav-store-comm">
