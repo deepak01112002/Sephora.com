@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link} from "react-router-dom";
+
+import { Link } from "react-router-dom";
+
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -7,12 +9,14 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 const Navbar = () => {
-  const [showSignUpModal, setShowSignUpModal] = useState(false);
+
+   const [showSignUpModal, setShowSignUpModal] = useState(false);
+
     
   const handleShowSignUpModal = () => setShowSignUpModal(true);
   
   const handleHideSignUpModal = () => setShowSignUpModal(false);
-    
+
   return (
     <div>
       <div id="top-add">
@@ -56,23 +60,28 @@ const Navbar = () => {
             <p className="comm-text">Community</p>
           </div>
         </div>
-        <div className="nav-signup-container">
-          <div className="nav-signup" onClick={handleShowSignUpModal}>
-            <div className="nav-small-icons-sign">
-              <img
-                className="signin-icon"
-                src="https://www.sephora.com/img/ufe/icons/me-active.svg"
-                alt=""
-              />
-            </div>
-            <div className="comm-text">
-              <p>
-                Sign In <br /> <span>Free Shipping</span>
-              </p>
-            </div>
-           
+
+        <div className="nav-signup">
+        <div className="nav-signup" onClick={handleShowSignUpModal}>
+          <div className="nav-small-icons-sign">
+            <img
+              className="signin-icon"
+              src="https://www.sephora.com/img/ufe/icons/me-active.svg"
+              alt=""
+            />
+          </div>
+          <div className="comm-text">
+           <p>
+              Sign In <br /> <span>Free Shipping</span>
+            </p>
+
           </div>
           {showSignUpModal && (
+            <SignUpModal show={showSignUpModal} onHide={handleHideSignUpModal} />
+           )}
+        </div>
+
+        {showSignUpModal && (
             <SignUpModal show={showSignUpModal} onHide={handleHideSignUpModal} />
            )}
         </div>
@@ -95,7 +104,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
 
 
 function SignUpModal({ show, onHide }) {
@@ -234,4 +242,6 @@ function LoginModal({ show, onHide }) {
   </Modal.Footer>
 </Modal>
 );
+
 }
+

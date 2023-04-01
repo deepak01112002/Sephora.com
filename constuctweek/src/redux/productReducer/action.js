@@ -11,7 +11,7 @@ import {
 export const addProduct = (data) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   axios
-    .post("http://localhost:8080/products", data)
+    .post("https://mock-server-app-0i38.onrender.com/products", data)
     .then(() => {
       dispatch({ type: ADD_PRODUCT_SUCCESS });
     })
@@ -24,7 +24,7 @@ export const addProduct = (data) => (dispatch) => {
 export const getProducts = (paramObj) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   axios
-    .get("http://localhost:8080/products", paramObj)
+    .get("https://mock-server-app-0i38.onrender.com/products", paramObj)
     .then((res) => {
       dispatch({ type: GET_PRODUCT_SUCCESS, payload: res.data });
     })
@@ -37,7 +37,7 @@ export const getProducts = (paramObj) => (dispatch) => {
 export const editProduct = (dataObj, id) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   return axios
-    .patch(`http://localhost:8080/products/${id}`, dataObj)
+    .patch(`https://mock-server-app-0i38.onrender.com/products/${id}`, dataObj)
     .then(() => {
       dispatch({ type: PATCH_PRODUCT_SUCCESS });
     })

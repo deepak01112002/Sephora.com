@@ -1,13 +1,8 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import "../App.css";
-import { Route, Routes } from "react-router-dom";
-import { Dashboard } from "../Gpages/Dashboard";
-import { About } from "../Gpages/About";
-import { Comment } from "../Gpages/Comment";
-import { Analytics } from "../Gpages/Analytics";
-import { Products } from "../Gpages/Products";
-import { ProductList } from "../Gpages/ProductList";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const Admin = () => {
   return (
@@ -36,8 +31,8 @@ const Admin = () => {
           </button>
         </div>
       </div>
-
-      <Sidebar>
+     
+      {/* <Sidebar>
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
@@ -46,7 +41,7 @@ const Admin = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/productList" element={<ProductList />} />
         </Routes>
-      </Sidebar>
+      </Sidebar> */}
     </div>
   );
 };

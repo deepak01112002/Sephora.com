@@ -946,3 +946,22 @@ main {
   cursor: pointer;
 }
 
+@media (max-width: 992px) and (min-width: 576px) {
+  .just-dropped div {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 576px) {
+  .beauty-offers div {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 992px) and (min-width: 576px) {
+  .skin-care div{
+    flex-direction: column;
+  }
+}
+
+

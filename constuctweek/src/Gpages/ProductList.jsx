@@ -1,12 +1,28 @@
-import React, { useEffect } from "react";
+
+import React, { useEffect,useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../redux/productReducer/action";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { ProductCard } from "./ProductCard";
 
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from '@chakra-ui/react'
+
+
 export const ProductList = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams,setParams] = useSearchParams();
   const dispatch = useDispatch();
+  const [page,setpage] = useState(1)
 
   const location = useLocation();
 
@@ -15,35 +31,53 @@ export const ProductList = () => {
   let obj = {
     params: {
       category: searchParams.getAll("category"),
+
+      _limit:10,
+      _page:searchParams.get("page")
+
     },
   };
 
   useEffect(() => {
     dispatch(getProducts(obj));
-  }, [location.search]);
 
+  }, [location.search,page]);
+   useEffect(()=>{
+    const params = {
+     page
+     }
+    setParams(params)
+  },[page])
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">IMAGE</th>
-            <th scope="col">TITLE</th>
-            <th scope="col">BRAND</th>
-            <th scope="col">PRICE</th>
-            <th scope="col">STATUS</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {products.length > 0 &&
+     <TableContainer>
+  <Table variant='simple'>
+    
+    <Thead>
+      <Tr>
+        <Th>ID</Th>
+        <Th>IMAGE</Th>
+        <Th >TITLE</Th>
+        <Th >BRAND</Th>
+        <Th >STATUS</Th>
+      </Tr>
+    </Thead>
+    <Tbody>
+      {products.length > 0 &&
               products.map((el) => {
                 return <ProductCard key={el.id} {...el} />;
-              })}
-          </tr>
-        </tbody>
-      </table>
+      })}
+    </Tbody>      
+  </Table>
+</TableContainer>
+      <div
+      
+      style={{display:"block",width:"140px",margin:"auto"}}>
+        <button style={{padding:"10px"}} disabled={page==1} onClick={()=>setpage(page-1)}>Prev</button>
+        <button style={{padding:"10px"}} disabled>{page}</button>
+        <button style={{padding:"10px"}} onClick={()=>setpage(page+1)}>Next</button>
+        </div>
+
     </div>
   );
 };

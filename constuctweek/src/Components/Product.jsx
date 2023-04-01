@@ -29,7 +29,7 @@ function Product() {
     console.log(search)
   useEffect(()=>{
     
-    axios.get("http://localhost:8080/products",obj)
+    axios.get("https://mock-server-app-0i38.onrender.com/products",obj)
     .then((res)=>{
       
       if(!pricesort){

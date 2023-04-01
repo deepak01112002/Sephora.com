@@ -1,6 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tfoot,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    TableContainer,
+  } from '@chakra-ui/react'
+
 export const ProductCard = ({
   image,
   title,
@@ -13,24 +26,23 @@ export const ProductCard = ({
   id,
 }) => {
   return (
-    <div>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th scope="row">{id}</th>
-            <td>
+
+    <Tr>
+           <Td scope="row">{id}</Td>
+            <Td>
               <img src={image} alt="Product Image" width={50} />
-            </td>
-            <td>{title}</td>
-            <td>{brand}</td>
-            <td>{price}</td>
-            <td>
+            </Td>
+            <Td>{title}</Td>
+            <Td>{brand}</Td>
+            <Td>{price}</Td>
+            <Td>
               <Link to={`/edit/${id}`}>Edit</Link>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      {/* <img src={image} alt="Product Image" />
+            </Td>
+          
+        
+    
+       {/* <img src={image} alt="Product Image" />
+
       <h3>{title}</h3>
       <h3>Price : ${price}</h3>
       <p>Brand: {brand}</p>
@@ -39,17 +51,8 @@ export const ProductCard = ({
       <button>
         <Link to={`/edit/${id}`}>Edit</Link>
       </button> */}
-    </div>
+
+    </Tr>
   );
 };
-// const DIV = styled.div`
-//   border: 1px solid gray;
-//   padding: 10px;
-//   width: 250px;
-//   text-align: center;
 
-//   img {
-//     width: 100%;
-//     height: 250px;
-//   }
-// `;

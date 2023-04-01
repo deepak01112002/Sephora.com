@@ -15,7 +15,7 @@ function SinglePage() {
     try {
       return axios({
         method : "post",
-        url : "http://localhost:8080/cart",
+        url : "https://mock-server-app-0i38.onrender.com/cart",
         data:{
           ...data,
           "Quantity" : 1
@@ -31,7 +31,7 @@ function SinglePage() {
   }
   
   useEffect(()=>{
-    axios.get(`http://localhost:8080/products/${id}`)
+    axios.get(`https://mock-server-app-0i38.onrender.com/products/${id}`)
     .then((res)=>{
        setdata(res.data)
     })
