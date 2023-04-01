@@ -860,3 +860,89 @@ main {
   cursor: pointer;
   text-decoration: underline;
 }
+.footer {
+  background-color: black;
+  color: white;
+  padding-top: 50px;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-around;
+  width: 75%;
+  margin: auto;
+}
+.footer-top div {
+  display: flex;
+}
+.footer-top img {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.footer-top p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.footer-middle {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 70%;
+  margin: 50px auto;
+}
+.footer-middle p {
+  font-size: 13px;
+}
+.footer-middle h5 {
+  font-size: 15px;
+}
+.footer-middle p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.input-div h5 {
+  font-size: 20px;
+}
+.mail-div {
+  margin-top: 350px;
+}
+.mail-div input {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+.mail-div button {
+  padding: 13px;
+  border-radius: 30px;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+}
+.mail-div button:hover {
+  background-color: white;
+  color: black;
+}
+.footer-end {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-end p {
+  font-size: 13px;
+}
+.footer-end img {
+  width: 40px;
+  height: 40px;
+}
+.social-icons {
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+}
+
