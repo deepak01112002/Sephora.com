@@ -453,7 +453,7 @@ main {
   gap: 30px;
   justify-content: center;
   margin-top: -20px;
-  margin-left: -120px;
+  /* margin-left: -120px; */
   /* border: 1px solid; */
   padding: 20px;
 }
