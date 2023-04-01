@@ -5,47 +5,57 @@ import { getProducts } from '../redux/productReducer/action';
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import Productlist from "./Productlist";
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 function Product() {
+  
     const [data,setdata] = useState([])
     const [searchParams,setParams] = useSearchParams()
-    const [rate,setrate] = useState([])
-    const [color,setcolor] = useState([])
-    const [pricefilter,setpricefilter] = useState([])
+    const Rate = searchParams.getAll("rating")
+   const Color = searchParams.getAll("color")
+    const [rating,setrating] = useState(Rate|| [])
+    const [color,setcolor] = useState(Color||[])
+    const {search} = useLocation()
+    const [page,setpage] = useState(1)
     const [pricesort,setpricesort] = useState("")
+   
     const obj = {
       params:{
-        rate:searchParams.getAll("rate"),
-        color:searchParams.getAll("color")
+        rating:searchParams.getAll("rating"),
+        color:searchParams.getAll("color"),
+        _limit:10,
+        _page:searchParams.get("page")
       }
     }
+    console.log(search)
   useEffect(()=>{
     
     axios.get("http://localhost:8080/products",obj)
     .then((res)=>{
+      
       if(!pricesort){
         setdata((res.data))
         }else{
-           pricesort == "asc" ? setdata(res.data.sort((a,b)=>a.price - b.price)) : setdata(res.data.sort((a,b)=>b.price - a.price)) 
+        pricesort == "asc" ? setdata(res.data.sort((a,b)=>a.price - b.price)) : setdata(res.data.sort((a,b)=>b.price - a.price)) 
         }
     })
-  },[pricesort,data])
+  },[pricesort,search,page])
   useEffect(()=>{
     const params = {
-     rate,
-     color
+     rating,
+     color,
+     page
      }
     setParams(params)
-  },[rate,color])
+  },[rating,color,page])
   const handleChange = (e)=>{
-    let data = [...rate]
+    let data = [...rating]
        let value = e.target.value;
        if(data.includes(value)){
          data = data.filter(el=>el!==value)
        }else{
          data.push(value)
        }
-       setrate(data)
+       setrating(data)
   }
   const handleColorChange = (e)=>{
      let data = [...color]
@@ -62,7 +72,7 @@ function Product() {
     setpricesort(e.target.value)
    
    }
-   
+   console.log(Rate,Color)
   return (
      
     <div className={styles.mainsection}>
@@ -80,61 +90,44 @@ function Product() {
           </Accordion.Body>
        </Accordion.Item>
        </Accordion> 
-       <Accordion >
-         <Accordion.Item >
-        <Accordion.Header><b>Sort By Name</b></Accordion.Header>
-          <Accordion.Body className={styles.rating}>
-              <input type="checkbox" />  
-              <label > <b>A-Z</b> </label><br />
-              <input type="checkbox" />  
-              <label ><b>Z-A</b></label><br />
-          </Accordion.Body>
-       </Accordion.Item>
-       </Accordion>     
-         <h6 className={styles.heading}>Filter the data</h6>
+        
+        <h6 className={styles.heading}>Filter the data</h6>
         <Accordion >
          <Accordion.Item >
         <Accordion.Header><b>Rating</b></Accordion.Header>
           <Accordion.Body className={styles.rating}>
-              <input value={4} onChange={handleChange} type="checkbox" />  
+              <input value={4} checked={Rate.includes("4")} onChange={handleChange} type="checkbox" />  
               <label > <b>4 Stars & above</b> </label><br />
-              <input value={3} onChange={handleChange} type="checkbox" />  
+              <input value={3} 
+              checked={Rate.includes("3")} onChange={handleChange} type="checkbox" />  
               <label ><b>3 Stars</b></label><br />
-              <input value={2} onChange={handleChange} type="checkbox" />  
+              <input value={2} checked={Rate.includes("2")} onChange={handleChange} type="checkbox" />  
               <label ><b>1 & 2 Stars </b></label> <br />
           </Accordion.Body>
        </Accordion.Item>
        </Accordion>
-        <Accordion >
-         <Accordion.Item >
-        <Accordion.Header><b>Price</b></Accordion.Header>
-          <Accordion.Body className={styles.price}>
-              <input type="checkbox" />  
-              <label value={24} > <b>Under $25 </b> </label><br />
-              <input type="checkbox" />  
-              <label value={30} ><b>$25 to $50</b></label><br />
-              <input type="checkbox" />  
-              <label ><b>$50 to $100</b></label> <br />
-              <input value={100} type="checkbox" />  
-              <label ><b>$100 and above </b></label> <br />
-          </Accordion.Body>
-       </Accordion.Item>
-       </Accordion> 
+        
        <Accordion >
          <Accordion.Item >
         <Accordion.Header><b>Color</b></Accordion.Header>
           <Accordion.Body className={styles.color}>
-              <input value={"pink"}  onChange={handleColorChange} type="checkbox" />  
+              <input value={"pink"}  onChange={handleColorChange} type="checkbox" checked={Color.includes("pink")} />  
               <label > <b>Pink</b> </label><br />
-              <input value={"red"} onChange={handleColorChange} type="checkbox" />  
+              <input value={"red"} checked={Color.includes("red")} onChange={handleColorChange} type="checkbox" />  
               <label ><b>Red</b></label><br />
-              <input value={"brown"} onChange={handleColorChange} type="checkbox" />  
+              <input checked={Color.includes("brown")} value={"brown"} onChange={handleColorChange} type="checkbox" />  
               <label ><b>Brown</b></label> <br />
-              <input value={"grey"} onChange={handleColorChange} type="checkbox" />  
+              <input checked={Color.includes("grey")} value={"grey"} onChange={handleColorChange} type="checkbox" />  
               <label ><b>Grey</b></label> <br />
           </Accordion.Body>
        </Accordion.Item>
-       </Accordion>       
+       </Accordion> 
+       <p className={styles.page}>Let's Change the Page</p>
+        <div className={styles.pagination}>
+        <button disabled={page==1} onClick={()=>setpage(page-1)}>Prev</button>
+        <button disabled>{page}</button>
+        <button onClick={()=>setpage(page+1)}>Next</button>
+        </div>      
         </div>
         
         <div className={styles.gridsection}>
@@ -159,6 +152,7 @@ function Product() {
            </span> 
           }
         </div>
+        
     </div>
   )
 }

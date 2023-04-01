@@ -57,11 +57,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="login-cart-options">
-          <img
-            className="login-cart-like"
-            src="https://cdn-icons-png.flaticon.com/512/535/535285.png"
-            alt=""
-          />
+         
          <Link to={'/cart'}> <img
             className="login-cart-bag"
             src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png"

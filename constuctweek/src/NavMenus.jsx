@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const NavMenus=()=>{
     return (
         <div className="full-width">
-          <Link to={"/"}>New</Link>
+          <Link to={"/"}>Home</Link>
           <div className="sub-menu">
             <a href="">All New</a>
             <a href="">Just Dropped</a>
@@ -14,7 +14,7 @@ const NavMenus=()=>{
             <a href="">New Bath & Body</a>
             <a href="">New Tools & Brushes</a>
           </div>
-          <a href="">Brand</a>
+          
           <Link to={"/Makeup"}>Makeup</Link>
           <a href="">Skincare</a>
           <a href="#">Hair</a>
