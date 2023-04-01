@@ -1,12 +1,12 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import "../App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Dashboard } from "../Gpages/Dashboard";
 import { About } from "../Gpages/About";
 import { Comment } from "../Gpages/Comment";
 import { Analytics } from "../Gpages/Analytics";
-import { Product } from "../Gpages/Product";
+import { Products } from "../Gpages/Products";
 import { ProductList } from "../Gpages/ProductList";
 
 const Admin = () => {
@@ -39,11 +39,11 @@ const Admin = () => {
 
       <Sidebar>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/comment" element={<Comment />} />
           <Route path="/analytics" element={<Analytics />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/productList" element={<ProductList />} />
         </Routes>
       </Sidebar>
