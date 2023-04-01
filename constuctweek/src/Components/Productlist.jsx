@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Productlist.module.css'
-function Productlist({name,price,id,category,type,image}) {
+function Productlist({title,price,id,category,type,image,rating}) {
   return   <Link to={`/Makeup/${id}`} style={{textDecoration:"none",color:"black"}}><div className={styles.card}>
-    <img src={image} alt={name} />
-   <h6>{name}</h6>
-    <p>{category}</p>
+    <img src={image} alt={title} />
+   <h6>{title}</h6>
+    <p>Category : {category}</p>
     <p>{type}</p>
-    <h6>${price} <strike>1299</strike> </h6>
+    <p>Rating : {rating}</p>
+    <h6>Price: ${price} <strike>1299</strike>25% off</h6>
 
 </div></Link>
 }
