@@ -7,6 +7,7 @@ import Home from '../Pages/Home'
 import Cart from '../Sanjeet/Cart'
 
 import Payment from '../Sanjeet/Payment'
+// import Login from '../Nitin/Login'
 
 function MainRoutes() {
   return (
@@ -21,6 +22,7 @@ function MainRoutes() {
         <Route path="/Makeup/:id" element={<SinglePage/>}></Route>
         <Route path='/payment' element={<Payment/>}></Route>
         <Route path="*" element={<h1>Page Not Found .......</h1>}></Route>
+        {/* <Route path='/login' element={ <Login/>}></Route> */}
         
     </Routes>        
     </div>
