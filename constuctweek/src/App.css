@@ -220,16 +220,11 @@ main {
 }
 
 .full-width {
-  
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-
-
-
-
 .full-width a {
   color: white;
   font-size: 14px;
@@ -265,7 +260,7 @@ main {
 
 @media (max-width: 992px) and (min-width: 576px) {
   .full-width .sub-menu {
-    flex-direction: row;
+    flex-direction: column;
   }
 }
 
@@ -944,5 +939,35 @@ main {
   display: flex;
   gap: 20px;
   cursor: pointer;
+}
+@media (max-width: 992px) and (min-width: 576px) {
+  .just-dropped div {
+    flex-direction: column;
+  }
+}
+@media (max-width: 576px) and (min-width: 0px) {
+  .just-dropped div {
+    flex-direction: column;
+  }
+}
+@media (max-width: 992px) and (min-width: 576px) {
+  .beauty-offers div {
+    flex-direction: column;
+  }
+}
+@media (max-width: 576px) and (min-width: 0px) {
+  .beauty-offers div {
+    flex-direction: column;
+  }
+}
+@media (max-width: 992px) and (min-width: 576px) {
+  .skin-care div{
+    flex-direction: column;
+  }
+}
+@media (max-width: 576px) and (min-width: 0px) {
+  .skin-care div{
+    flex-direction: column;
+  }
 }
 
