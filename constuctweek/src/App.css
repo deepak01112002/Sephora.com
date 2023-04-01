@@ -181,8 +181,22 @@ main {
   display: flex;
   cursor: pointer;
   justify-content: center;
+
 }
-.nav-signup:hover {
+
+.sign_in_DropDown{
+  position: absolute;
+    z-index: 1;
+    width: 200px ;
+    height: 300px;
+    border: 1px solid red;
+    
+}
+
+
+
+
+.nav-signup .sign_in_DropDown:hover {
   border-bottom: 2px solid black;
 }
 .comm-text p span {
@@ -206,21 +220,15 @@ main {
 }
 
 .full-width {
+  
   width: 100%;
-  background-color: black;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
 
-.full-width {
-  width: 100%;
-  background-color: black;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
+
 
 .full-width a {
   color: white;

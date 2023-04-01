@@ -14,8 +14,8 @@ import MainRoutes from './Components/MainRoutes';
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <NavMenus/>
+    <Navbar/>
+    <NavMenus/>
       <MainRoutes/>
       {/* <Payment/>  */}
       {/* <Cart/> */}
