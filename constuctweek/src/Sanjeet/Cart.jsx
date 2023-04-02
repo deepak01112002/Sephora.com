@@ -11,6 +11,8 @@ import {
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+
 const initialState = {
   data: [],
   isLoading: false,
@@ -48,6 +50,7 @@ const reducer = (state, action) => {
 const Cart = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { data, isLoading, error } = state;
+  
 
   const [total, setTotal] = useState(0);
 
@@ -152,19 +155,17 @@ const Cart = () => {
             </Box>
 
             <Box p={15}>
+              <Link to="/" >
               <Button borderRadius={5} p="5" bg="white">
                 SEE DETAILS
               </Button>
+              </Link>
+             
             </Box>
           </Box>
 
-          <Box>
-
-            <Box
-              mt="5px" borderRadius="5px" margin="auto"
-              bg="ButtonShadow"
-            >
-
+          <Box maxW="max-content">
+            <Box mt="5px" borderRadius="5px" margin="auto" bg="ButtonShadow">
               <h6>Get It Shipped({data.length})</h6>
               <Box bg="white" margin="5px">
                 <h6 style={{ fontSize: "15px", fontFamily: "sans-serif" }}>
@@ -182,13 +183,9 @@ const Cart = () => {
 
                 <Box
                   display={"flex"}
-
                   maxW="max-content"
                   margin="auto"
-
                   flexWrap="wrap"
-                  margin="auto"
-                 
                 >
                   <Box border="1px solid grey" p={5} mt="5px">
                     <h6>
@@ -256,25 +253,19 @@ const Cart = () => {
                     </Flex>
                   ) : (
                     data.map((el) => (
-                      <Flex
-                        gap={5}
-                        direction={"column"}
-
-                        
-                        flex="1"
-                      >
+                      <Flex gap={5} direction={"column"} flex="1">
                         <Box
-                          width="70%"
+                          margin="auto"
+                          width="100%"
                           display="flex"
-                          justifyContent="space-evenly"
-                          
+                          justifyContent="space-between"
+                          p="10px"
                         >
                           <Box maxW="max-content">
                             <Image mt="3px" src={el.image} />
                           </Box>
 
-
-                          <Box>
+                          <Box width="50%" mt="20px">
                             <span
                               style={{
                                 fontFamily: "sans-serif",
@@ -297,7 +288,7 @@ const Cart = () => {
                                 fontSize: "12px",
                               }}
                             >
-                              {el.productid}
+                              {el.rating}⭐
                             </h6>
 
                             <Box display="flex" justifyContent="space between">
@@ -360,7 +351,7 @@ const Cart = () => {
                               </Box>
                             </Box>
                           </Box>
-                          <Box>
+                          <Box mt="20px">
                             {" "}
                             <h6
                               style={{
@@ -587,6 +578,9 @@ const Cart = () => {
                   bg="red"
                   borderRadius="50px"
                   borderStyle="hidden"
+                  // onClick={()=>{
+                  //   dispatchTotal(cartTotalSave(total));
+                  // }}
                 >
                   Checkout Shipped Items
                 </Button>
@@ -600,6 +594,7 @@ const Cart = () => {
               justifyContent="center"
               alignItems="center"
             >
+              <Link to="https://www.paypal.com/in/home" >
               <Button
                 // width="10%"
                 pr="30px"
@@ -619,6 +614,7 @@ const Cart = () => {
                   alt=""
                 />
               </Button>
+              </Link>
             </Box>
           </Box>
 
