@@ -1,7 +1,4 @@
-
-
-
-import { Dashboard } from '../Gpages/Dashboard'
+import { Dashboard } from "../Gpages/Dashboard";
 
 import React from "react";
 import { Routes, Route } from "react-router-dom";
@@ -11,23 +8,20 @@ import SinglePage from "./SinglePage";
 import Home from "../Pages/Home";
 import Cart from "../Sanjeet/Cart";
 import Payment from "../Sanjeet/Payment";
-
+import { EditProduct } from "../Gpages/EditProduct";
 
 function MainRoutes() {
   return (
     <div>
-
-    <Routes>
-        <Route path={"/"} element={<Home/>}></Route>
-        <Route path='/Makeup' element={<Product/>}></Route>
-        <Route path='/admin' element={<Dashboard/>}></Route>
-        <Route path='/cart' element={<Cart/>}></Route>
-        <Route path="/Makeup/:id" element={<SinglePage/>}></Route>
-        <Route path='/payment' element={<Payment/>}></Route>
-      </Routes>        
-
-
-      
+      <Routes>
+        <Route path={"/"} element={<Home />}></Route>
+        <Route path="/Makeup" element={<Product />}></Route>
+        <Route path="/admin" element={<Dashboard />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/Makeup/:id" element={<SinglePage />}></Route>
+        <Route path="/payment" element={<Payment />}></Route>
+        <Route path="/edit/:id" element={<EditProduct />}></Route>
+      </Routes>
     </div>
   );
 }
