@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-
+import { Link } from "react-router-dom";
 
 const Home = () => {
   useEffect(() => {
@@ -89,12 +89,12 @@ const Home = () => {
         <div className="dropped-products">
           <div>
             <button>NEW</button>
-            <div>
+            <Link to="/Makeup"><div>
               <img
                 src="https://www.sephora.com/productimages/sku/s2650828-main-zoom.jpg?pb=2020-03-sephora-clean-2019&imwidth=166"
                 alt=""
               />
-            </div>
+            </div></Link>
             <div>
               <h5>Tatcha</h5>
               <p>Dewy Cleanse + Hydrate Duo</p>
