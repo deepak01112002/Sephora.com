@@ -26,6 +26,7 @@ function MainRoutes() {
         <Route path="/Makeup/:id" element={<SinglePage />}></Route>
         <Route path="/payment" element={<Payment />}></Route>
         <Route path="/edit/:id" element={<EditProduct />}></Route>
+        <Route path="/otp" element={<Otp/>}></Route>
       </Routes>
 
     </div>
