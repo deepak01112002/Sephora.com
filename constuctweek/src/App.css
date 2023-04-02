@@ -11,12 +11,16 @@ main {
   width: 100%;
   padding: 80px 0 0 80px;
 }
+.modal-open {
+  filter: blur(50px);
+}
 .sidebar {
   background: #000;
   color: #fff;
   height: 100vh;
   transition: all 0.5s;
 }
+
 .top_section {
   display: flex;
   align-items: center;
