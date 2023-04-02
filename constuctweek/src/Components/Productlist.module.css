@@ -5,7 +5,7 @@
     border-radius: 20px;
 }
 .card img{
-    height: 60%;
+    height: 50%;
     width: 100%;
 }
 .invisible{
@@ -18,7 +18,7 @@ strike{
 }
 
 .card:hover img{
-    height: 58%;
+    height: 48%;
     transition: 0.5s ease-in;
     
 }
