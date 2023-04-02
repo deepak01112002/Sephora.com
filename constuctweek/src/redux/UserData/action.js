@@ -41,7 +41,7 @@ export const postUserFailure = (error) => ({
 export const getUsers = () => {
   return (dispatch) => {
     dispatch(getUsersRequest());
-    axios
+   return axios
       .get("https://mock-server-app-0i38.onrender.com/users")
       .then((response) => {
         const users = response.data;

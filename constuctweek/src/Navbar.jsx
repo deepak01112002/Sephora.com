@@ -9,15 +9,26 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 import { Col, Image, Row } from 'react-bootstrap';
+import { getUsers, postUser } from "./redux/UserData/action";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 const Navbar = () => {
+  const dispatch = useDispatch()
+  const {pathname} = useLocation()
+  useEffect(()=>{
+    dispatch(getUsers())
+  },[])
 
    const [showSignUpModal, setShowSignUpModal] = useState(false);
-
+   var data = useSelector((store)=>store.userReducer)
     
   const handleShowSignUpModal = () => setShowSignUpModal(true);
   
   const handleHideSignUpModal = () => setShowSignUpModal(false);
-
+  // const {users} = data
+  
+  console.log(pathname)
   return (
     <div>
       <div id="top-add">
@@ -52,8 +63,7 @@ const Navbar = () => {
         </div>
         <div className="nav-store-comm">
           <div className="nav-small-icons">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/10133/10133737.png"
+            <img              src="https://cdn-icons-png.flaticon.com/512/10133/10133737.png"
               alt="err"
             />
           </div>
@@ -72,8 +82,9 @@ const Navbar = () => {
             />
           </div>
           <div className="comm-text">
+          
            <p>
-              Sign In <br /> <span>Free Shipping</span>
+            {pathname=="/admin" ? "Admin":"Sign In" }   <br /> <span>Free Shipping</span>
             </p>
 
           </div>
@@ -117,7 +128,7 @@ function SignUpModal({ show, onHide }) {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedMonth, setSelectedMonth] = useState('');
   const [zipCode, setZipCode] = useState('');
-
+  const dispatch = useDispatch()
 
 
 
@@ -165,8 +176,8 @@ const [modalVisible, setModalVisible] = useState(false);
     // TODO: Implement logic to handle sign up
     setIsSignedUp(true);
     setShowLoginModal(true);
-
-    console.log(obj);
+    
+    dispatch(postUser(obj))
 
     
     setPhoneNumber("");
@@ -341,6 +352,9 @@ function LoginModal({ show, onHide }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [logindata,loginsetdata] = useState([])
+  const dispatch = useDispatch()
+  var data = useSelector((store)=>store.userReducer)
   const navigate = useNavigate();
  
   
@@ -353,6 +367,7 @@ function LoginModal({ show, onHide }) {
     
     
     if (email === 'admin@mail.com') {
+      
       window.location.href = '/admin';
     }else
     {
@@ -361,12 +376,16 @@ function LoginModal({ show, onHide }) {
     }
    
     // TODO: Implement logic to handle login
-   
-   
+  
     navigate('');
     
    
   };
+  useEffect(()=>{
+    dispatch(getUsers())
+  },[])
+
+  
 
   const handleHideLoginModal = () => {
     onHide();
