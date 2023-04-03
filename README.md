@@ -18,8 +18,12 @@
      <li> <h4 >Nitin - [ Login Page & Signup Page ]</h4></li>
       <li> <h4 >Sanjeet - [ Checkout Page,Cart Page,Otp Page ]</h4></li>
       <li><h4 align="left" > Netlify-link- https://dancing-maamoul-b9794a.netlify.app/ </h4></li>
+      <li>
+       <h1 align="left">Tect Stack Used:</h1>
+       <h4 align="left">React,Redux,React-router-dom,Bootstrap,Styled,Chakra UI etc.</h4</li>
      
 </ul>
+
 <!-- Signup Page -->
 <h1 align="center">Signup Page</h1>
 
@@ -77,10 +81,8 @@
 </p>
 
 
-<h1 align="left">Languages and Tools:</h1>
-<h4 align="left">React,Redux,React-router-dom,Bootstrap,Styles etc.</h4>
 
-
+<h1 align="center">Thank You</h1>
 
 
 
