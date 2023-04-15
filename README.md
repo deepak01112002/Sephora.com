@@ -79,7 +79,7 @@
 <p align="left">
 <a href="https://www.linkedin.com/in/deepak-pandey-0511a3250/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="priti tiwari" height="30" width="40" /></a>
 </p>
-<h1 align="center">Team Member</h1>
+<h1 align="center">Connect with Team Members</h1>
 <p align="left">
 <a href="https://www.linkedin.com/in/furqan-ahmed-1ab0931ab/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="priti tiwari" height="30" width="40" /></a>
 </p>
