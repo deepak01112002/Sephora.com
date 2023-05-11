@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import {
   FormControl,
   FormLabel,
@@ -22,18 +22,59 @@ import {
 } from "@chakra-ui/react";
 
 import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useState,useEffect,useReducer } from "react";
+import axios from "axios";
+import { clearCart, getData, getcartproduct } from "../redux/CartReducer/action";
+
+ 
 
 const SplitWithImage = () => {
   const toast = useToast();
+  const dispatch = useDispatch()
+  const getData = ()=>{
+    axios
+        .get("https://mock-server-app-0i38.onrender.com/cart")
+        .then((res) => {
+          dispatch({ type: "Success", payload: res.data });
+          console.log(res.data);
+        })
+        .catch((err) => {
+          dispatch({ type: "Failure", payload: err.message });
+        });
+  }
+  useEffect(()=>{
+    getData()
+  },[])
+const{data}= useSelector((store)=>store.cartReducer)
 
-  const a = () => {
+const a = () => {
     toast({
       title: "Payment Succesfull..Hope You Like Our Products..",
       status: "success",
       duration: 2000,
       isClosable: true,
     });
+    
+      for(let x=0; x<data.length; x++){
+        
+        axios
+        .delete(`https://mock-server-app-0i38.onrender.com/cart/${data[x].id}`)
+        .then((res) => {
+         dispatch(getData);
+
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      
+    }
+    
   };
+ 
+ 
+
+
   return (
     <Box ml={{ base: 0, md: 60 }} p="0">
       {/* <Box ml={{ base: 0, md: 60 }} p="8">

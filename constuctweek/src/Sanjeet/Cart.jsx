@@ -11,47 +11,48 @@ import {
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart, clearData, getData } from "../redux/CartReducer/action";
 
-const initialState = {
-  data: [],
-  isLoading: false,
-  error: false,
-  tax: 0,
-  shipping: 0,
-};
+// const initialState = {
+//   data: [],
+//   isLoading: false,
+//   error: false,
+//   tax: 0,
+//   shipping: 0,
+// };
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "Request":
-      return {
-        ...state,
-        isLoading: true,
-        error: false,
-      };
-    case "Success":
-      return {
-        ...state,
-        data: action.payload,
-        isLoading: false,
-        error: false,
-      };
-    case "Failure":
-      return {
-        ...state,
-        isLoading: false,
-        error: true,
-      };
-
-    default:
-      throw new Error();
-  }
-};
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case "Request":
+//       return {
+//         ...state,
+//         isLoading: true,
+//         error: false,
+//       };
+//     case "Success":
+//       return {
+//         ...state,
+//         data: action.payload,
+//         isLoading: false,
+//         error: false,
+//       };
+//     case "Failure":
+//       return {
+//         ...state,
+//         isLoading: false,
+//         error: true,
+//       };
+    
+//     default:
+//       throw new Error();
+//   }
+// };
 const Cart = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const { data, isLoading, error } = state;
-  
-
+  // const [state, dispatch] = useReducer(reducer, initialState);
+  // const { data, isLoading, error } = initialState;
+  const dispatch = useDispatch()
+   const { data, isLoading, error } = useSelector((store)=>store.cartReducer)
   const [total, setTotal] = useState(0);
 
   const [ttotal, setTtotal] = useState(0);
@@ -67,22 +68,22 @@ const Cart = () => {
     });
   };
 
-  const getData = () => {
-    dispatch({ type: "Request" });
+  // const getData = () => {
+  //   dispatch({ type: "Request" });
 
-    axios
-      .get("https://mock-server-app-0i38.onrender.com/cart")
-      .then((res) => {
-        dispatch({ type: "Success", payload: res.data });
-        console.log(res.data);
-      })
-      .catch((err) => {
-        dispatch({ type: "Failure", payload: err.message });
-      });
-  };
+  //   axios
+  //     .get("https://mock-server-app-0i38.onrender.com/cart")
+  //     .then((res) => {
+  //       dispatch({ type: "Success", payload: res.data });
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => {
+  //       dispatch({ type: "Failure", payload: err.message });
+  //     });
+  // };
 
   useEffect(() => {
-    getData();
+    dispatch(getData);
   }, []);
 
   useEffect(() => {
@@ -100,14 +101,14 @@ const Cart = () => {
       .patch(`https://mock-server-app-0i38.onrender.com/cart/${id}`, {
         Quantity: Quantity,
       })
-      .then(() => getData());
+      .then(() => dispatch(getData));
   };
 
   const handleDelete = (id) => {
     axios
       .delete(`https://mock-server-app-0i38.onrender.com/cart/${id}`)
       .then((res) => {
-        getData();
+       dispatch(getData);
         a();
         setTotalCart(res.data.length);
       })
@@ -115,7 +116,24 @@ const Cart = () => {
         console.log(error);
       });
   };
+  console.log(data)
 
+  //  const ClearCart = ()=>{
+  //   for(let x=0; x<data.length; x++){
+  //     // console.log(data[x].id)
+  //     axios
+  //     .delete(`https://mock-server-app-0i38.onrender.com/cart/${data[x].id}`)
+  //     .then((res) => {
+  //      dispatch(getData);
+  //       a();
+  //       setTotalCart(res.data.length);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  //    }
+  // }
+  
   return (
     <Box
       maxW="fit-content"
@@ -578,9 +596,9 @@ const Cart = () => {
                   bg="red"
                   borderRadius="50px"
                   borderStyle="hidden"
-                  // onClick={()=>{
-                  //   dispatchTotal(cartTotalSave(total));
-                  // }}
+                  // onClick={
+                  //   ClearCart
+                  // }
                 >
                   Checkout Shipped Items
                 </Button>

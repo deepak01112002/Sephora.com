@@ -12,7 +12,7 @@ function SinglePage() {
   const {id }= useParams()
   const [data,setdata] = useState([])
   const handleaddtocart = async ()=>{
-    try {
+   { try {
       return axios({
         method : "post",
         url : "https://mock-server-app-0i38.onrender.com/cart",
@@ -25,8 +25,8 @@ function SinglePage() {
        
       })
     } catch (error) {
-    console.log("errro is ", error)
-    }
+       console.log(error)
+    }}
     
   }
   
