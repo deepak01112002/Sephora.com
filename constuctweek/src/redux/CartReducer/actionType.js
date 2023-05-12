@@ -1,0 +1,5 @@
+export const GET_CART_PRODUCT = "GET_CART_PRODUCT"
+export const CART_REQUEST = "PRODUCT_REQUEST";
+
+export const CART_FAILURE = "PRODUCT_FAILURE";
+export const CLEAR_CART = "CLEAR_CART"
