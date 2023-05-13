@@ -17,8 +17,8 @@ strike{
     text-decoration: line-through;
 }
 
-.card:hover img{
-    height: 48%;
-    transition: 0.5s ease-in;
-    
+
+.card:hover{
+    transform: translateY(-5px);
+    transition: transform 0.2s;
 }

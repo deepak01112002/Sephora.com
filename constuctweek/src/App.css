@@ -267,11 +267,12 @@ main {
   opacity: 1;
 }
 
-@media (max-width: 992px) and (min-width: 576px) {
-  .full-width .sub-menu {
+/* @media screen and (max-width: 992px) and (min-width: 576px) { */
+  /* .full-width {
+    display: none;
     flex-direction: row;
-  }
-}
+  } */
+/* } */
 
 @keyframes App-logo-spin {
   from {
@@ -478,7 +479,7 @@ main {
 /***/
 .slide-container {
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
   width: 100%;
@@ -491,6 +492,7 @@ main {
   scroll-snap-points-x: repeat(100%);
   gap: 10px;
   margin: 10px auto;
+  cursor: grab;
 }
 .slide-container::-webkit-scrollbar {
   width: 10px;
@@ -968,4 +970,16 @@ main {
   }
 }
 
-
+/* @media (max-width: 992px) and (min-width: 576px) {
+  .full-width {
+    flex-direction: column;
+    height: 150px;
+    overflow: scroll;
+  }
+  #nav-top{
+   justify-content: space-around;
+  }
+  .nav-search input{
+    display: none;
+  }
+} */

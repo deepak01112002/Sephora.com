@@ -13,6 +13,7 @@ const initialState = {
   error: null,
   isPosting: false,
   postError: null,
+  isAuth : false
 };
 
 export const reducer = (state = initialState, action) => {

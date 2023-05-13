@@ -12,6 +12,8 @@ import Payment from "../Sanjeet/Payment";
 import { EditProduct } from "../Gpages/EditProduct";
 
 import Otp from "../Sanjeet/Otp"
+import Login from "../Nitin/Login";
+import PrivateRoute from "./PrivateRoute";
 
 
 function MainRoutes() {
@@ -20,13 +22,34 @@ function MainRoutes() {
 
       <Routes>
         <Route path={"/"} element={<Home />}></Route>
+        <Route path={"/login"} element={<Login/>}></Route>
         <Route path="/Makeup" element={<Product />}></Route>
-        <Route path="/admin" element={<Dashboard />}></Route>
-        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="/admin" element={
+        <PrivateRoute>
+        <Dashboard />
+        </PrivateRoute>
+        }></Route>
+        <Route path="/cart" element={
+        <PrivateRoute>
+        <Cart />
+        </PrivateRoute>
+        }></Route>
         <Route path="/Makeup/:id" element={<SinglePage />}></Route>
-        <Route path="/payment" element={<Payment />}></Route>
-        <Route path="/edit/:id" element={<EditProduct />}></Route>
-        <Route path="/otp" element={<Otp/>}></Route>
+        <Route path="/payment" element={
+        <PrivateRoute>
+        <Payment />
+        </PrivateRoute>
+        }></Route>
+        <Route path="/edit/:id" element={
+        <PrivateRoute>
+        <EditProduct />
+        </PrivateRoute>
+        }></Route>
+        <Route path="/otp" element={
+        <PrivateRoute>
+        <Otp/>
+        </PrivateRoute>
+        }></Route>
       </Routes>
 
     </div>

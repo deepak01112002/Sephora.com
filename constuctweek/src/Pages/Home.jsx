@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
     
-      <div className="slide-container">
+      <div className="slide-container ">
         <div>
           <img
             src="https://www.sephora.com/contentimages/2023-fragrance-q2-site-home-page-rwd-hero-banner-US-2973-image-only-1000x750.jpg?imwidth=545"

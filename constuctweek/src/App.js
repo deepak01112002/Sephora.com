@@ -9,6 +9,7 @@ import Cart from "./Sanjeet/Cart"
 import Payment from './Sanjeet/Payment';
 import MainRoutes from './Components/MainRoutes';
 import Footer from './Footer';
+import PrivateRoute from './Components/PrivateRoute';
 
 
 
@@ -20,6 +21,7 @@ function App() {
       <MainRoutes/>
       {/* <Payment/>  */}
       {/* <Cart/> */}
+      {/* <PrivateRoute/> */}
       <Footer/>
     </div>
   );
