@@ -25,6 +25,7 @@ const initialState = {
   expirey: "",
   address : "",
   cvv: "",
+  postal : "",
   isDisabled : true
 }
 
@@ -81,6 +82,13 @@ const reducer = (state, action) => {
         address : action.payload
       }
     }
+    
+    case "postal" : {
+      return {
+        ...state,
+        postal : action.payload
+      }
+    }
     default: {
       return state;
     }
@@ -91,8 +99,11 @@ const reducer = (state, action) => {
 
 const Payment = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  
   const [state, dispatch] = useReducer(reducer, initialState);
+  
   const cancelRef = React.useRef();
+  
   return (
     <Box
       maxW={"max-content"}
@@ -160,7 +171,10 @@ const Payment = () => {
                    value={state.phone}
                    onChange={(e) =>
                      dispatch({ type: "phone", payload: e.target.value })
-                   } />
+                   } 
+                   maxlength="10"
+                   
+                  />
                 </Box>
 
                 <Box margin="10px">
@@ -207,9 +221,9 @@ const Payment = () => {
                 color="white"
                 onClick={onOpen}
 
-                isDisabled={state.name==="" || state.phone === "" || state.address === ""}
+                isDisabled={state.name===""|| state.phone === "" || state.address === "" || state.phone.length < 10 || state.postal.length<6 || state.postal.length > 6}
               >
-                Save And Continue
+                 Save And Continue 
               </Button>
               <AlertDialog
                 motionPreset="slideInBottom"
@@ -349,7 +363,7 @@ const Payment = () => {
                 bg="black"
                 _hover={{ bg: "red" }}
                 color="white"
-                isDisabled={state.cvv==="" || state.name === "" || state.cardno === ""}
+                isDisabled={state.cvv==="" || state.name === "" || state.cardno === "" || state.cardno.length < 16|| state.cardno.length >16 || state.cvv.length < 3 || state.cvv.length > 3 || state.expirey.length < 5 || state.expirey.length > 5}
               >
                 Proceed For Otp
               </Button>
@@ -624,6 +638,7 @@ const Payment = () => {
       </Box>
     </Box>
   );
+  
 };
 
 export default Payment;

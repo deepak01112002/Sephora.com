@@ -35,6 +35,7 @@
 .card{
     border: 1px solid black;
     height: 350px;
+    
 }
 .card img{
     height: 70%;
@@ -75,3 +76,21 @@
         
     }
 }
+
+@media (max-width: 992px) {
+    .gridsection{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        
+    }
+  }
+
+  @media (max-width: 600px) {
+    .gridsection{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        
+    }
+  }

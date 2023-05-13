@@ -6,13 +6,15 @@ import styled from 'styled-components';
 import styles from '../Components/SinglePage.module.css'
 import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 function SinglePage() {
   const {id }= useParams()
   const [data,setdata] = useState([])
+  const navigate = useNavigate()
   const handleaddtocart = async ()=>{
-   { try {
+   if(localStorage.getItem("isAuth")){ 
+    try {
       return axios({
         method : "post",
         url : "https://mock-server-app-0i38.onrender.com/cart",
@@ -26,7 +28,11 @@ function SinglePage() {
       })
     } catch (error) {
        console.log(error)
-    }}
+    }
+  }else{
+    alert("Login First")
+    navigate("/login")
+  }
     
   }
   
