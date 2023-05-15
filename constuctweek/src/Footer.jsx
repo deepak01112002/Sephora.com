@@ -108,7 +108,7 @@ const Footer = () => {
           <p>Canada - English</p>
           <p>Canada - Français</p>
         </div>
-        <div className="input-div">
+        {/* <div className="input-div">
           <div>
             <h2>
               We Belong to <br /> Something Beautiful
@@ -125,7 +125,7 @@ const Footer = () => {
               <button>Sign Up</button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="footer-end">
         <div>
