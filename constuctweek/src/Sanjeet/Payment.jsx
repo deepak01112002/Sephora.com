@@ -18,16 +18,16 @@ import { Link } from "react-router-dom";
 
 const initialState = {
   name: "",
-  lname : "",
+  lname: "",
   email: "",
   phone: "",
   cardno: "",
   expirey: "",
-  address : "",
+  address: "",
   cvv: "",
-  postal : "",
-  isDisabled : true
-}
+  postal: "",
+  isDisabled: true,
+};
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -38,11 +38,11 @@ const reducer = (state, action) => {
       };
     }
 
-    case "lname" :{
+    case "lname": {
       return {
         ...state,
-        lname : action.payload
-      }
+        lname: action.payload,
+      };
     }
     case "email": {
       return {
@@ -76,18 +76,18 @@ const reducer = (state, action) => {
       };
     }
 
-    case "address" : {
+    case "address": {
       return {
         ...state,
-        address : action.payload
-      }
+        address: action.payload,
+      };
     }
-    
-    case "postal" : {
+
+    case "postal": {
       return {
         ...state,
-        postal : action.payload
-      }
+        postal: action.payload,
+      };
     }
     default: {
       return state;
@@ -95,30 +95,23 @@ const reducer = (state, action) => {
   }
 };
 
-
-
 const Payment = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  
+
   const [state, dispatch] = useReducer(reducer, initialState);
-  
+
   const cancelRef = React.useRef();
-  
+
   return (
     <Box
-      maxW={"max-content"}
+      maxW={{ base: "100%", md: "max-content" }}
       p={{ base: 5, md: 10 }}
       textAlign="left"
       margin="auto"
-      //   border={"2px solid black"}
+      border={"2px solid black"}
     >
-      <Box
-        display={"flex"}
-        justifyContent="space-between"
-        margin={"auto"}
-        flexWrap="wrap"
-      >
-        <Box m={"10px"} p="10px">
+      <Box display={"flex"} justifyContent="space-between" flexWrap="wrap">
+        <Box w="100%" >
           <h1
             style={{
               fontSize: "25px",
@@ -133,65 +126,68 @@ const Payment = () => {
             display="flex"
             justifyContent="space-evenly"
             borderRadius={"5px"}
-            bgGradient="linear(to-t, green.200, pink.500)"
             flexWrap="wrap"
-            bg="ButtonShadow"
+            bgGradient="linear(to-t, green.200, pink.500)"
+                bg="ButtonShadow"
           >
-            <Box w="max-content">
+            <Box flexWrap="wrap" >
               <Box
                 display="flex"
                 justifyContent="space-between"
-                flexWrap="wrap"
+                flexWrap={{ base: "wrap", md: "wrap" }}
                 margin="auto"
+                
               >
-                <Box margin="10px">
-                  <Input type="text" placeholder="Enter First Name*" isRequired
-                   value={state.name}
-                   onChange={(e) =>
-                     dispatch({ type: "name", payload: e.target.value })
-                   } />
-                </Box>
+                <Input
+                  type="text"
+                  placeholder="Enter First Name*"
+                  isRequired
+                  value={state.name}
+                  onChange={(e) =>
+                    dispatch({ type: "name", payload: e.target.value })
+                  }
+                />
 
-                <Box margin="10px">
-                  <Input placeholder="Enter Last Name*" isRequired
-                   value={state.lname}
-                   onChange={(e) =>
-                     dispatch({ type: "lname", payload: e.target.value })
-                   } />
-                </Box>
+                <Input
+                  placeholder="Enter Last Name*"
+                  isRequired
+                  value={state.lname}
+                  onChange={(e) =>
+                    dispatch({ type: "lname", payload: e.target.value })
+                  }
+                />
               </Box>
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                flexWrap="wrap"
-                margin="auto"
-              >
-                <Box margin="10px">
-                  <Input placeholder="Phone*" isRequired
-                   value={state.phone}
-                   onChange={(e) =>
-                     dispatch({ type: "phone", payload: e.target.value })
-                   } 
-                   maxlength="10"
-                   
-                  />
-                </Box>
+              <Box display="flex" flexWrap="wrap" margin="auto">
+                <Input
+                  flexWrap="wrap"
+                  placeholder="Phone*"
+                  isRequired
+                  value={state.phone}
+                  onChange={(e) =>
+                    dispatch({ type: "phone", payload: e.target.value })
+                  }
+                  maxlength="10"
+                />
 
-                <Box margin="10px">
-                  <Input placeholder="Zip/Postal Code*" isRequired
-                   value={state.postal}
-                   onChange={(e) =>
-                     dispatch({ type: "postal", payload: e.target.value })
-                   } />
-                </Box>
+                <Input
+                  placeholder="Zip/Postal Code*"
+                  isRequired
+                  value={state.postal}
+                  onChange={(e) =>
+                    dispatch({ type: "postal", payload: e.target.value })
+                  }
+                />
               </Box>
 
-              <Box margin="10px">
-                <Input placeholder="Street Address*" isRequired
-                   value={state.address}
-                   onChange={(e) =>
-                     dispatch({ type: "address", payload: e.target.value })
-                   } />
+              <Box>
+                <Input
+                  placeholder="Street Address*"
+                  isRequired
+                  value={state.address}
+                  onChange={(e) =>
+                    dispatch({ type: "address", payload: e.target.value })
+                  }
+                />
               </Box>
 
               <a
@@ -220,10 +216,16 @@ const Payment = () => {
                 _hover={{ bg: "red" }}
                 color="white"
                 onClick={onOpen}
-
-                isDisabled={state.name===""|| state.phone === "" || state.address === "" || state.phone.length < 10 || state.postal.length<6 || state.postal.length > 6}
+                isDisabled={
+                  state.name === "" ||
+                  state.phone === "" ||
+                  state.address === "" ||
+                  state.phone.length < 10 ||
+                  state.postal.length < 6 ||
+                  state.postal.length > 6
+                }
               >
-                 Save And Continue 
+                Save And Continue
               </Button>
               <AlertDialog
                 motionPreset="slideInBottom"
@@ -238,13 +240,13 @@ const Payment = () => {
                   <AlertDialogHeader>Add Card Details</AlertDialogHeader>
                   <AlertDialogCloseButton />
                   <AlertDialogBody>
-                   Address Saved..Add Your Card Details to continue
+                    Address Saved..Add Your Card Details to continue
                   </AlertDialogBody>
                   <AlertDialogFooter>
                     <Button ref={cancelRef} onClick={onClose}>
                       No
                     </Button>
-                    <Button colorScheme="red" ml={3} onClick={onClose} >
+                    <Button colorScheme="red" ml={3} onClick={onClose}>
                       OK
                     </Button>
                   </AlertDialogFooter>
@@ -270,6 +272,7 @@ const Payment = () => {
             bgGradient="linear(to-t, green.200, pink.500)"
             flexWrap="wrap"
             bg="ButtonShadow"
+            
           >
             <Box w="max-content">
               <Box m={"10px"}>
@@ -313,18 +316,26 @@ const Payment = () => {
                 margin="auto"
               >
                 <Box margin="10px">
-                  <Input isRequired
-                   type="text" placeholder="Enter First Name*" value={state.name}
-                   onChange={(e) =>
-                     dispatch({ type: "name", payload: e.target.value })
-                   }/>
+                  <Input
+                    isRequired
+                    type="text"
+                    placeholder="Enter First Name*"
+                    value={state.name}
+                    onChange={(e) =>
+                      dispatch({ type: "name", payload: e.target.value })
+                    }
+                  />
                 </Box>
 
                 <Box margin="10px">
-                  <Input isRequired placeholder="Enter Last Name*" value={state.lname}
+                  <Input
+                    isRequired
+                    placeholder="Enter Last Name*"
+                    value={state.lname}
                     onChange={(e) =>
                       dispatch({ type: "lname", payload: e.target.value })
-                    } />
+                    }
+                  />
                 </Box>
               </Box>
               <Box
@@ -334,39 +345,60 @@ const Payment = () => {
                 margin="auto"
               >
                 <Box margin="10px">
-                  <Input isRequired placeholder="Expiry Month*" value={state.expirey}
+                  <Input
+                    isRequired
+                    placeholder="Expiry Month*"
+                    value={state.expirey}
                     onChange={(e) =>
                       dispatch({ type: "expirey", payload: e.target.value })
-                    } />
+                    }
+                  />
                 </Box>
 
                 <Box margin="10px">
-                  <Input isRequired placeholder="Cvv*"  value={state.cvv}
+                  <Input
+                    isRequired
+                    placeholder="Cvv*"
+                    value={state.cvv}
                     onChange={(e) =>
                       dispatch({ type: "cvv", payload: e.target.value })
-
-                    } />
+                    }
+                  />
                 </Box>
               </Box>
 
               <Box margin="10px">
-                <Input isRequired placeholder="Card Number*"   value={state.cardno}
-                    onChange={(e) =>
-                      dispatch({ type: "cardno", payload: e.target.value })
-                    } />
+                <Input
+                  isRequired
+                  placeholder="Card Number*"
+                  value={state.cardno}
+                  onChange={(e) =>
+                    dispatch({ type: "cardno", payload: e.target.value })
+                  }
+                />
               </Box>
-             
+
               <Link to="/otp">
-              <Button
-                mb="10px"
-                ml={"12px"}
-                bg="black"
-                _hover={{ bg: "red" }}
-                color="white"
-                isDisabled={state.cvv==="" || state.name === "" || state.cardno === "" || state.cardno.length < 16|| state.cardno.length >16 || state.cvv.length < 3 || state.cvv.length > 3 || state.expirey.length < 5 || state.expirey.length > 5}
-              >
-                Proceed For Otp
-              </Button>
+                <Button
+                  mb="10px"
+                  ml={"12px"}
+                  bg="black"
+                  _hover={{ bg: "red" }}
+                  color="white"
+                  isDisabled={
+                    state.cvv === "" ||
+                    state.name === "" ||
+                    state.cardno === "" ||
+                    state.cardno.length < 16 ||
+                    state.cardno.length > 16 ||
+                    state.cvv.length < 3 ||
+                    state.cvv.length > 3 ||
+                    state.expirey.length < 5 ||
+                    state.expirey.length > 5
+                  }
+                >
+                  Proceed For Otp
+                </Button>
               </Link>
             </Box>
           </Box>
@@ -530,7 +562,6 @@ const Payment = () => {
               </Box>
             </Box>
 
-
             <Box
               display="flex"
               boxSize="100%"
@@ -638,7 +669,6 @@ const Payment = () => {
       </Box>
     </Box>
   );
-  
 };
 
 export default Payment;
