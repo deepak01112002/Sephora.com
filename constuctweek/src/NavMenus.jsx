@@ -3,19 +3,9 @@ import { Link } from "react-router-dom";
 
 const NavMenus=()=>{
     return (
+      <div>
         <div className="full-width">
           <Link to={"/"}>Home</Link>
-          <div className="sub-menu">
-            <a href="">All New</a>
-            <a href="">Just Dropped</a>
-            <a href="">New Makeup</a>
-            <a href="">New Skincare</a>
-            <a href="">New Haircare</a>
-            <a href="">New Fragrance</a>
-            <a href="">New Bath & Body</a>
-            <a href="">New Tools & Brushes</a>
-          </div>
-          
           <Link to={"/Makeup"}>Makeup</Link>
           <a href="">Skincare</a>
           <a href="#">Hair</a>
@@ -26,7 +16,22 @@ const NavMenus=()=>{
           <a href="">Gifts</a>
           <a href="">Beauty Under $20</a>
           <a href="">Sale & Offers</a>
+          
         </div>
+        <div className="half-width">
+        <Link to={"/"}> <button>Home</button></Link>
+        <Link to={"/Makeup"}> <button>Makeup</button></Link>
+          <button>Skincare</button>
+          <button>Hair</button>
+          <button>Fragrance</button>
+          <button >Tools & Brushes</button>
+          <button >Bath & Body</button>
+          <button >Mini Size</button>
+          <button >Gifts</button>
+          <button >Beauty Under $20</button>
+          <button >Sale & Offers</button>
+        </div>
+    </div>
       );
 }
 
