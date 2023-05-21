@@ -12,7 +12,7 @@
 
 <h1 align="center" >TEAM DESCRIPTION</h1>
 <ul>
-   <li> <h4 >Deepak Pandey - [Product Page[Makeup Page],Single Product Page, Filter, Sorting, Pagination ]</h4></li>
+   <li> <h4 >Deepak Pandey - [Product Page[Makeup Page],Single Product Page, Filter, Sorting, Pagination,Login Page & Signup Page Recreated with all functionality ]</h4></li>
     <li> <h4 >Gurmeet - [ Json Data, Admin Page , Edit Page ]</h4></li>
     <li> <h4 >Fuqan - [ Admin Page ]</h4></li>
      <li> <h4 >Nitin - [ Login Page & Signup Page ]</h4></li>
