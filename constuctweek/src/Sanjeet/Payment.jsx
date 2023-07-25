@@ -390,11 +390,10 @@ const Payment = () => {
                     state.name === "" ||
                     state.cardno === "" ||
                     state.cardno.length < 16 ||
-                    state.cardno.length > 16 ||
+                    
                     state.cvv.length < 3 ||
-                    state.cvv.length > 3 ||
-                    state.expirey.length < 5 ||
-                    state.expirey.length > 5
+                   
+                  
                   }
                 >
                   Proceed For Otp
